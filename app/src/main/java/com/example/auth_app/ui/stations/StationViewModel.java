@@ -1,16 +1,16 @@
-package com.example.auth_app.ui.gallery;
+package com.example.auth_app.ui.stations;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class GalleryViewModel extends ViewModel {
+public class StationViewModel extends ViewModel{
 
     private final MutableLiveData<String> mText;
 
-    public GalleryViewModel() {
+    public StationViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is gallery fragment");
+        mText.setValue("This is station fragment");
     }
 
     public LiveData<String> getText() {

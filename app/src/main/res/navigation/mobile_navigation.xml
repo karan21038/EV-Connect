@@ -12,14 +12,15 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.auth_app.ui.gallery.GalleryFragment"
-        android:label="@string/menu_gallery"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_stations"
+        android:name="com.example.auth_app.ui.stations.StationFragment"
+        android:label="@string/menu_stations"
+        tools:layout="@layout/fragment_station" />
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.auth_app.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_shops"
+        android:name="com.example.auth_app.ui.shops.ShopFragment"
         android:label="@string/menu_slideshow"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_shop" />
+
 </navigation>
