@@ -18,11 +18,11 @@ public class StationDetailFragment extends Fragment {
     public TextView sts_detail_num;
 
     private int mParam1;
-    public StationListItem modelObject;
+    //public StationListItem modelObject;
+    public int sts_number;
+    public StationDetailFragment(int sts_number) {
 
-    public StationDetailFragment(StationListItem modelObject) {
-
-        this.modelObject = modelObject;
+        this.sts_number = sts_number;
 
     }
 
@@ -50,8 +50,8 @@ public class StationDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_station_detail, container, false);
         sts_detail_num  = view.findViewById(R.id.station_num_detail);
-        Log.i("",String.valueOf(modelObject.getStation_num()));
-        sts_detail_num.setText(String.valueOf(modelObject.getStation_num()));
+        Log.i("",String.valueOf(sts_number));
+        sts_detail_num.setText(String.valueOf(sts_number));
         return view;
     }
 }

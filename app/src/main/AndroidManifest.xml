@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Auth_app">
         <activity
-            android:name=".ui.stations.StationNavActivity"
+            android:name=".ui.stations.StationDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

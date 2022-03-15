@@ -1,5 +1,6 @@
 package com.example.auth_app.ui.stations;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
     private List<StationListItem> stationListItems;
+    public static  final String EXTRA_NUMBER = "com.example.auth_app.ui.stations.EXTRA_NUMBER";
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -59,41 +61,9 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
     @Override
     public void onItemClick(StationListItem modelObject) {
 
-//        Fragment fragment = StationDetailFragment.newInstance(modelObject.getStation_num());
-//        FragmentTransaction fragmentTransaction = getActivity().getSupportFragmentManager().beginTransaction();
-//        Log.i("before-replace", String.valueOf(modelObject.getStation_num()));
-//        fragmentTransaction.replace(R.id.station_frame,fragment,"station_detail_frag");
-//        Log.i("after-replace","No");
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
-//        Log.i("after-commit","No");
-
-        FragmentManager fragmentTransaction = getActivity().getSupportFragmentManager();
-        Fragment f3 = fragmentTransaction.findFragmentById(R.id.station_container); //replacing the news fragment on news click
-        if(f3!=null){
-            Log.i("","fragment not found");
-            f3 = new StationDetailFragment(modelObject);
-            Log.i("after-commit","No");
-            fragmentTransaction.beginTransaction()
-                    .replace(R.id.station_container,f3)
-                    .addToBackStack(null)
-                    .commit();
-        }
-
-
+        int station_num = modelObject.getStation_num();
+        Intent serviceIntent = new Intent(getActivity(), StationDetailsActivity.class);
+        serviceIntent.putExtra(EXTRA_NUMBER,station_num);
+        startActivity(serviceIntent);
     }
-
-//    @Override
-//    public void onNewsClick(NewsModel newsModel) { //implementing the function from NewsClick interface
-//
-//        FragmentManager fragmentTransaction = getActivity().getSupportFragmentManager();
-//        Fragment f3 = fragmentTransaction.findFragmentById(R.id.frame2); //replacing the news fragment on news click
-//        if(f3!=null){
-//            Log.i(TAG,"fragment not found");
-//            f3 = new Fragment3(newsModel);
-//            fragmentTransaction.beginTransaction()
-//                    .replace(R.id.frame2,f3)
-//                    .addToBackStack(null)
-//                    .commit();
-//        }
 }

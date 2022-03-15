@@ -4,23 +4,24 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import com.example.auth_app.R;
 
-public class StationNavActivity extends AppCompatActivity {
+public class StationDetailsActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_station_nav);
-
+        setContentView(R.layout.activity_station_details);
+        Intent intent = getIntent();
+        int sts_num = intent.getIntExtra(StationFragment.EXTRA_NUMBER,0);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        Log.i("after-commit-nav","No");
-        fragmentTransaction.replace(R.id.station_container,new StationFragment());
+        fragmentTransaction.replace(R.id.station_container,new StationDetailFragment(sts_num));
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
     }
+
 }
