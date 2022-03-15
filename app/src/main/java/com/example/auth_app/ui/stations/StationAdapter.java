@@ -1,6 +1,7 @@
 package com.example.auth_app.ui.stations;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,11 @@ import java.util.List;
 public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHolder> {
     private StationFragment stationFragment;
     private List<StationListItem> stationListItems;
-//    private ItemClickListener clickListener;
+    private ItemClickListener clickListener;
 
-    public StationAdapter(List<StationListItem> stationListItems, StationFragment stationFragment) {
+    public StationAdapter(List<StationListItem> stationListItems,StationFragment stationFragment, ItemClickListener clickListener) {
         this.stationListItems = stationListItems;
+        this.clickListener = clickListener;
         this.stationFragment = stationFragment;
     }
 
@@ -33,15 +35,15 @@ public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
-        holder.stationNumber.setText("Station No. - " + String.valueOf(stationListItems.get(position).getIndex()));
-        holder.stationStatus.setText("Station Status - " + String.valueOf(stationListItems.get(position).getStatus()));
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Log.i("","In bindViewHolder ######");
-//                clickListener.onItemClick(stationListItems.get(position));
-//            }
-//        });
+        holder.stn_name.setText("Station No. - " + String.valueOf(stationListItems.get(position).getStation_name()));
+        holder.stn_price.setText("Station Status - " + String.valueOf(stationListItems.get(position).getPrice()));
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Log.i("","In bindViewHolder ######");
+                clickListener.onItemClick(stationListItems.get(position));
+            }
+        });
     }
 
     @Override
@@ -49,16 +51,14 @@ public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHold
         return stationListItems.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
 
-        public TextView stationNumber, stationStatus;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public TextView stn_name, stn_price;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            stationNumber = itemView.findViewById(R.id.station_number);
-            stationStatus = itemView.findViewById(R.id.station_status);
-        }
-        @Override
-        public void onClick(View view) {
+            stn_name = itemView.findViewById(R.id.station_name);
+            stn_price = itemView.findViewById(R.id.station_price);
         }
     }
 
