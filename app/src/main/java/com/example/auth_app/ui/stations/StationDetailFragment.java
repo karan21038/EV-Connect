@@ -16,13 +16,17 @@ public class StationDetailFragment extends Fragment {
 
     private static final String ARG_PARAM1 = "param1";
     public TextView sts_detail_num;
+    public TextView stn_detail_name;
+    public TextView stn_detail_addr;
+    public TextView stn_detail_price;
+    public TextView stn_detail_rating;
 
     private int mParam1;
     //public StationListItem modelObject;
-    public int sts_number;
-    public StationDetailFragment(int sts_number) {
+    public String result;
+    public StationDetailFragment(String result) {
 
-        this.sts_number = sts_number;
+        this.result = result;
 
     }
 
@@ -49,9 +53,24 @@ public class StationDetailFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_station_detail, container, false);
-        sts_detail_num  = view.findViewById(R.id.station_num_detail);
-        Log.i("",String.valueOf(sts_number));
-        sts_detail_num.setText(String.valueOf(sts_number));
+        stn_detail_name  = view.findViewById(R.id.station_name);
+        stn_detail_addr = view.findViewById(R.id.station_address);
+        stn_detail_price = view.findViewById(R.id.station_price);
+        stn_detail_rating = view.findViewById(R.id.station_rating);
+
+
+        //Splitting result
+        String[] res_arr = result.split("\\$");
+
+
+        Log.i("REsult",res_arr[0]);
+        stn_detail_name.setText(res_arr[1]);
+        stn_detail_addr.setText(res_arr[2]);
+        stn_detail_price.setText(String.valueOf(res_arr[3]));
+        stn_detail_rating.setText(String.valueOf(res_arr[4]));
+
+        Log.i("HEREREEEE",StationFragment.name);
+        //sts_detail_num.setText(String.valueOf(sts_number));;
         return view;
     }
 }

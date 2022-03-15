@@ -8,10 +8,10 @@ public class StationListItem {
     public double price;
     public String strt_time;
     public String stop_time;
-    public int ratings;
+    public double ratings;
     public String address;
 
-    public StationListItem(int station_num, String station_name, double lati, double longi, double price, String strt_time, String stop_time, int ratings, String address) {
+    public StationListItem(int station_num, String station_name, double lati, double longi, double price, String strt_time, String stop_time, double ratings, String address) {
         this.station_num = station_num;
         this.station_name = station_name;
         this.lati = lati;
@@ -79,11 +79,11 @@ public class StationListItem {
         this.stop_time = stop_time;
     }
 
-    public int getRatings() {
+    public double getRatings() {
         return ratings;
     }
 
-    public void setRatings(int ratings) {
+    public void setRatings(double ratings) {
         this.ratings = ratings;
     }
 

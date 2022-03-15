@@ -16,10 +16,10 @@ public class StationDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_station_details);
         Intent intent = getIntent();
-        int sts_num = intent.getIntExtra(StationFragment.EXTRA_NUMBER,0);
+        String result = intent.getStringExtra(StationFragment.EXTRA_TEXT);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.station_container,new StationDetailFragment(sts_num));
+        fragmentTransaction.replace(R.id.station_container,new StationDetailFragment(result));
         fragmentTransaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         fragmentTransaction.commit();
     }
