@@ -96,7 +96,7 @@
         android:background="#30ffffff"
         android:layout_height="23dp"
         android:text="Forgot Password?"
-        android:textSize="15dp"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
