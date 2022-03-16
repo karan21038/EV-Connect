@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     if(user.isEmailVerified()){
                         //redirect to user profile
                         startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                        pBar.setVisibility(View.GONE);
                     }else{
                         user.sendEmailVerification();
                         Toast.makeText(MainActivity.this,"Check Email to Verify Account",Toast.LENGTH_LONG).show();
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else{
                     Toast.makeText(MainActivity.this,"Failed to Login",Toast.LENGTH_LONG).show();
+                    pBar.setVisibility(View.GONE);
                 }
             }
         });

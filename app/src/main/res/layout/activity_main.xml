@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_try2"
     tools:context=".MainActivity">
 
     <TextView
@@ -11,16 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
-        android:text="EV CONNECT"
+
         android:fontFamily="sans-serif-black"
-        android:textSize="30sp"
+        android:text="EV CONNECT"
         android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintBottom_toTopOf="@+id/app_friend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <TextView
         android:id="@+id/app_friend"
@@ -28,22 +30,27 @@
         android:layout_height="wrap_content"
         android:text="Your Ev's best friend"
         android:textAlignment="center"
-        android:textStyle="italic"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.206" />
+        app:layout_constraintVertical_bias="0.243" />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="366dp"
         android:layout_height="42dp"
         android:ems="10"
+        android:padding="10dp"
+        android:background="#30ffffff"
         android:hint="EMAIL"
+        android:textColorHint="@color/white"
+        android:drawableLeft="@drawable/ic_baseline_person_24"
         android:inputType="textPersonName"
+        android:drawablePadding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.266"
@@ -55,7 +62,12 @@
         android:id="@+id/password"
         android:layout_width="371dp"
         android:layout_height="42dp"
+        android:background="#30ffffff"
         android:ems="10"
+        android:padding="10dp"
+        android:drawableLeft="@drawable/ic_baseline_info_24"
+        android:drawablePadding="5dp"
+        android:textColorHint="@color/white"
         android:hint="PASSWORD"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -68,19 +80,23 @@
         android:id="@+id/login"
         android:layout_width="323dp"
         android:layout_height="51dp"
+        android:background="#30ffffff"
+        android:textSize="25dp"
+        android:textColor="@color/white"
         android:text="LOGIN"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.397"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
-        app:layout_constraintVertical_bias="0.18" />
+        app:layout_constraintVertical_bias="0.204" />
 
     <TextView
         android:id="@+id/forgot_password"
         android:layout_width="122dp"
+        android:background="#30ffffff"
         android:layout_height="23dp"
         android:text="Forgot Password?"
+        android:textSize="14dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,10 +110,13 @@
         android:layout_width="117dp"
         android:layout_height="22dp"
         android:layout_marginTop="52dp"
+        android:background="#30ffffff"
         android:text="Register"
+        android:textSize="15dp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toEndOf="@+id/forgot_password"
         app:layout_constraintTop_toBottomOf="@+id/login"
         app:layout_constraintVertical_bias="0.0" />

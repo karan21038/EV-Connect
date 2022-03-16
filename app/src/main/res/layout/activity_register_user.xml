@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_try2"
     tools:context=".Register_user">
 
     <TextView
@@ -19,7 +20,7 @@
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.131" />
+        app:layout_constraintVertical_bias="0.051" />
 
     <TextView
         android:id="@+id/app_friend"
@@ -34,12 +35,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.232" />
+        app:layout_constraintVertical_bias="0.147" />
 
     <EditText
         android:id="@+id/reg_name"
         android:layout_width="300dp"
         android:layout_height="45dp"
+        android:background="#30ffffff"
+        android:textColorHint="@color/white"
+        android:padding="5dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="Enter Name"
@@ -55,6 +59,9 @@
         android:layout_width="303dp"
         android:layout_height="42dp"
         android:ems="10"
+        android:background="#30ffffff"
+        android:textColorHint="@color/white"
+        android:padding="5dp"
         android:inputType="textPersonName"
         android:hint="Age"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -69,6 +76,9 @@
         android:layout_width="304dp"
         android:layout_height="42dp"
         android:ems="10"
+        android:background="#30ffffff"
+        android:textColorHint="@color/white"
+        android:padding="5dp"
         android:inputType="textPersonName"
         android:hint="Email"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,6 +94,9 @@
         android:layout_height="40dp"
         android:layout_marginStart="36dp"
         android:ems="10"
+        android:background="#30ffffff"
+        android:textColorHint="@color/white"
+        android:padding="5dp"
         android:hint="Password"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
