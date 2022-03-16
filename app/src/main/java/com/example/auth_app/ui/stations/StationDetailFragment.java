@@ -1,5 +1,6 @@
 package com.example.auth_app.ui.stations;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -8,9 +9,11 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.auth_app.R;
+import com.example.auth_app.ui.maps.StationMapActivity;
 
 public class StationDetailFragment extends Fragment {
 
@@ -20,10 +23,14 @@ public class StationDetailFragment extends Fragment {
     public TextView stn_detail_addr;
     public TextView stn_detail_price;
     public TextView stn_detail_rating;
-
+    public double latitude;
+    public double longitude;
+    public Button trackStationBtn;
     private int mParam1;
     //public StationListItem modelObject;
     public String result;
+    public static  final String EXTRA_TEXT = "com.example.auth_app.ui.stations.EXTRA_TEXT";
+
     public StationDetailFragment(String result) {
 
         this.result = result;
@@ -69,8 +76,30 @@ public class StationDetailFragment extends Fragment {
         stn_detail_price.setText(String.valueOf(res_arr[3]));
         stn_detail_rating.setText(String.valueOf(res_arr[4]));
 
+
+        longitude = Double.parseDouble(res_arr[5]);
+        latitude = Double.parseDouble(res_arr[6]);
+
+        String res = longitude+"$"+latitude;
+
+        trackStationBtn = view.findViewById(R.id.station_track);
+
+        trackStationBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent serviceIntent = new Intent(getActivity(), StationMapActivity.class);
+                serviceIntent.putExtra(EXTRA_TEXT,res);
+                startActivity(serviceIntent);
+
+            }
+        });
+
         Log.i("HEREREEEE",StationFragment.name);
         //sts_detail_num.setText(String.valueOf(sts_number));;
         return view;
     }
+
+
+
 }

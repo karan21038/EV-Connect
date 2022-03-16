@@ -129,7 +129,9 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
         String address = modelObject.getAddress();
         double price = modelObject.getPrice();
         double rating = modelObject.getRatings();
-        String res = station_num+"$"+station_name+"$"+address+"$"+price+"$"+rating;
+        double latitude = modelObject.getLati();
+        double longitude = modelObject.getLongi();
+        String res = station_num+"$"+station_name+"$"+address+"$"+price+"$"+rating+"$"+latitude+"$"+longitude;
 
         Intent serviceIntent = new Intent(getActivity(), StationDetailsActivity.class);
         serviceIntent.putExtra(EXTRA_TEXT,res);
