@@ -70,11 +70,11 @@ public class StationDetailFragment extends Fragment {
         String[] res_arr = result.split("\\$");
 
 
-        Log.i("REsult",res_arr[0]);
+        Log.i("Result",res_arr[0]);
         stn_detail_name.setText(res_arr[1]);
-        stn_detail_addr.setText(res_arr[2]);
-        stn_detail_price.setText(String.valueOf(res_arr[3]));
-        stn_detail_rating.setText(String.valueOf(res_arr[4]));
+        stn_detail_addr.setText("Address: " + res_arr[2]);
+        stn_detail_price.setText("Price: " + String.valueOf(res_arr[3]));
+        stn_detail_rating.setText("Rating: " + String.valueOf(res_arr[4]));
 
 
         longitude = Double.parseDouble(res_arr[5]);

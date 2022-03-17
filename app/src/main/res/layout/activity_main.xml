@@ -15,7 +15,7 @@
         android:fontFamily="sans-serif-black"
         android:text="EV CONNECT"
         android:textAlignment="center"
-        android:textSize="30sp"
+        android:textSize="40sp"
         app:layout_constraintBottom_toTopOf="@+id/app_friend"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -28,7 +28,7 @@
         android:id="@+id/app_friend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Your Ev's best friend"
+        android:text="Your EV's Best Friend"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -38,13 +38,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
+        app:layout_constraintVertical_bias="0.472" />
 
     <EditText
         android:id="@+id/email"
-        android:layout_width="359dp"
-        android:layout_height="55dp"
-        android:background="#30ffffff"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:drawableLeft="@drawable/ic_baseline_person_24"
         android:drawablePadding="5dp"
         android:ems="10"
@@ -54,16 +53,15 @@
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.546"
+        app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.424" />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="362dp"
-        android:layout_height="54dp"
-        android:background="#30ffffff"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
         android:drawableLeft="@drawable/ic_baseline_info_24"
         android:drawablePadding="5dp"
         android:ems="10"
@@ -80,49 +78,50 @@
 
     <Button
         android:id="@+id/login"
-        android:layout_width="323dp"
-        android:layout_height="51dp"
-        android:background="#30ffffff"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@color/purple_700"
         android:text="LOGIN"
         android:textColor="@color/white"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.558"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.711" />
+        app:layout_constraintVertical_bias="0.71" />
 
     <TextView
         android:id="@+id/forgot_password"
-        android:layout_width="122dp"
-        android:layout_height="23dp"
-        android:background="#30ffffff"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
         android:text="Forgot Password?"
         android:textAlignment="center"
+        android:background="@android:color/transparent"
         android:textColor="@color/white"
-        android:textSize="14dp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login"
-        app:layout_constraintVertical_bias="0.301" />
+        app:layout_constraintVertical_bias="0.307" />
 
     <TextView
         android:id="@+id/Register"
-        android:layout_width="122dp"
-        android:layout_height="23dp"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
         android:layout_marginTop="52dp"
-        android:background="#30ffffff"
         android:text="Register"
         android:textAlignment="center"
+        android:background="@android:color/transparent"
         android:textColor="@color/white"
-        android:textSize="15dp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.442"
+        app:layout_constraintHorizontal_bias="0.716"
         app:layout_constraintStart_toEndOf="@+id/forgot_password"
         app:layout_constraintTop_toBottomOf="@+id/login"
         app:layout_constraintVertical_bias="0.0" />
@@ -148,7 +147,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.134"
+        app:layout_constraintVertical_bias="0.140"
         app:srcCompat="@drawable/ev_logo4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

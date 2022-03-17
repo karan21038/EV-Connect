@@ -27,10 +27,13 @@
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/activity_profile.xml" value="0.1578125" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/activity_register_user.xml" value="0.1578125" />
+        <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/activity_station_details.xml" value="0.1578125" />
+        <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/activity_station_map.xml" value="0.1578125" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/app_bar_home.xml" value="0.1578125" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/content_home.xml" value="0.1578125" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/fragment_home.xml" value="0.1578125" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/fragment_profile.xml" value="0.1171875" />
+        <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/fragment_shop.xml" value="0.1286231884057971" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/fragment_slideshow.xml" value="0.1" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/fragment_station.xml" value="0.10054347826086957" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/fragment_station_detail.xml" value="0.1171875" />
