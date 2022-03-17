@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -22,7 +23,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Register_user extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     TextView banner;
-    EditText ename,eage,eemail,epassword;
+    EditText ename,eage,eemail,epassword,ev_num;
+    CheckBox car,bike;
     ProgressBar progressBar;
     Button reg_user;
     @Override
@@ -40,6 +42,9 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
         eemail = (EditText) findViewById(R.id.reg_email);
         epassword =(EditText) findViewById(R.id.reg_password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar_reg);
+        car = (CheckBox) findViewById(R.id.Car);
+        bike = (CheckBox) findViewById(R.id.Bike);
+        ev_num = (EditText) findViewById(R.id.ev_reg_number);
     }
 
     @Override
@@ -58,6 +63,8 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
         String name = ename.getText().toString().trim();
         String age = eage.getText().toString().trim();
         String password = epassword.getText().toString().trim();
+        String ev_type_reg="";
+        String ev_number = ev_num.getText().toString();
         if(name.isEmpty()){
             ename.setError("Full name is required");
             ename.requestFocus();
@@ -68,11 +75,39 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
             eage.requestFocus();
             return;
         }
+        if(car.isChecked() && !bike.isChecked()){
+            ev_type_reg = "Car";
+        }
+        if(bike.isChecked()&& !car.isChecked()){
+            ev_type_reg = "Bike";
+        }
+        if(bike.isChecked() && car.isChecked()){
+            car.setError("Please select only one");
+            bike.setError("Please select only one");
+            bike.requestFocus();
+            car.requestFocus();
+            Toast.makeText(this, "Kindly select only one of Car or Bike", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(!bike.isChecked() && !car.isChecked()){
+            car.setError("Please select one");
+            bike.setError("Please select one");
+            bike.requestFocus();
+            car.requestFocus();
+            Toast.makeText(this, "Please select a vehicle type", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(ev_number.isEmpty()){
+            ev_num.setError("Registration number needed");
+            ev_num.requestFocus();
+            return;
+        }
         if(email.isEmpty()){
             eemail.setError("Email is required");
             eemail.requestFocus();
             return;
         }
+
         if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
             eemail.setError("Please Provide Valid Email!");
             eemail.requestFocus();
@@ -89,11 +124,12 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
             return;
         }
         progressBar.setVisibility(View.VISIBLE);
+        String finalEv_type_reg = ev_type_reg;
         mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    User user = new User(name,age,email);
+                    User user = new User(name,age,email, finalEv_type_reg,ev_number);
                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance()
                             .getCurrentUser()
                             .getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
