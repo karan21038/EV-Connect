@@ -22,20 +22,23 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     TextView register,forgot_password;
-    EditText edit_email,edit_password;
+    EditText edit_username, edit_email, edit_password;
     Button sign_in;
     private FirebaseAuth mAuth;
     ProgressBar pBar;
+    public static  final String emailExtra = "com.example.auth_app.emailExtra";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         register = (TextView) findViewById(R.id.Register);
+
         forgot_password = (TextView)findViewById(R.id.forgot_password);
         forgot_password.setOnClickListener(this);
         register.setOnClickListener((View.OnClickListener) this);
         sign_in = (Button) findViewById(R.id.login);
         sign_in.setOnClickListener(this);
+        edit_username = (EditText) findViewById(R.id.reg_name);
         edit_email = (EditText) findViewById(R.id.email);
         edit_password = (EditText) findViewById(R.id.password);
         pBar = (ProgressBar)findViewById(R.id.progressBar);
@@ -91,7 +94,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if(user.isEmailVerified()){
                         //redirect to user profile
-                        startActivity(new Intent(MainActivity.this,HomeActivity.class));
+                        Intent intent = new Intent(MainActivity.this,HomeActivity.class);
+                        intent.putExtra(emailExtra, email);
+                        startActivity(intent);
                         pBar.setVisibility(View.GONE);
                     }else{
                         user.sendEmailVerification();

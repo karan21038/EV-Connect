@@ -1,12 +1,16 @@
 package com.example.auth_app;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -15,11 +19,20 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.auth_app.databinding.ActivityHomeBinding;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.Map;
 
 public class HomeActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityHomeBinding binding;
+    public TextView UserName;
+    public TextView UserID;
+    public String emailExtra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +49,55 @@ public class HomeActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
+
+        View headerView = navigationView.getHeaderView(0);
+        UserID = (TextView) headerView.findViewById(R.id.UserID);
+        UserName = (TextView) headerView.findViewById(R.id.UserName);
+
+        Intent intent = getIntent();
+        String email = intent.getStringExtra(MainActivity.emailExtra);
+        UserID.setText(email);
+
+        final String[] username = new String[1];
+        final String[] key = new String[1];
+        FirebaseDatabase.getInstance().getReference("Users").orderByChild("u_email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot childSnapshot : snapshot.getChildren()) {
+                    key[0] = childSnapshot.getKey();
+                    Log.i("Key", key[0]);
+                }
+
+                    FirebaseDatabase.getInstance().getReference("Users").child(key[0]).addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                            String data = snapshot.getValue().toString();
+                            Log.i("Data ------>", data);
+
+                            Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                            username[0] = (String) map.get("u_name");
+                            UserName.setText("Hello " + username[0] + "!");
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError error) {
+
+                        }
+                    });
+                }
+                @Override
+                public void onCancelled (@NonNull DatabaseError error){
+
+                }
+        });
+
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
