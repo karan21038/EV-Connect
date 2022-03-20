@@ -36,8 +36,10 @@ public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHold
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         holder.stn_name.setText(String.valueOf(stationListItems.get(position).getStation_name()));
-        holder.stn_rating.setText("Rating - " + String.valueOf(stationListItems.get(position).getRatings()));
-        holder.stn_price.setText("Price - " + String.valueOf(stationListItems.get(position).getPrice()));
+        holder.stn_rating.setText("Rating - "+String.valueOf(stationListItems.get(position).getRatings()));
+        //holder.stn_price.setText("Price - " + String.valueOf(stationListItems.get(position).getPrice()));
+        holder.stn_distance.setText(String.valueOf(stationListItems.get(position).getDistance()) + " Km away");
+        holder.stn_status.setText(String.valueOf(stationListItems.get(position).getStatus()));
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,12 +57,14 @@ public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView stn_name, stn_price, stn_rating;
+        public TextView stn_name, stn_price, stn_rating, stn_distance, stn_status;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             stn_name = itemView.findViewById(R.id.station_name);
-            stn_price = itemView.findViewById(R.id.station_price);
+            //stn_price = itemView.findViewById(R.id.station_price);
             stn_rating = itemView.findViewById(R.id.station_rating);
+            stn_distance = itemView.findViewById(R.id.station_distance);
+            stn_status = itemView.findViewById(R.id.station_status);
         }
     }
 

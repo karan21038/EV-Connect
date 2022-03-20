@@ -10,8 +10,10 @@ public class StationListItem {
     public String stop_time;
     public double ratings;
     public String address;
+    public double distance;
+    public String status;
 
-    public StationListItem(int station_num, String station_name, double lati, double longi, double price, String strt_time, String stop_time, double ratings, String address) {
+    public StationListItem(int station_num, String station_name, double lati, double longi, double price, String strt_time, String stop_time, double ratings, String address, double distance, String status) {
         this.station_num = station_num;
         this.station_name = station_name;
         this.lati = lati;
@@ -21,6 +23,8 @@ public class StationListItem {
         this.stop_time = stop_time;
         this.ratings = ratings;
         this.address = address;
+        this.distance = distance;
+        this.status = status;
     }
 
     public int getStation_num() {
@@ -94,5 +98,22 @@ public class StationListItem {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
 }
 
