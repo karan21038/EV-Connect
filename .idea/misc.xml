@@ -41,6 +41,15 @@
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/layout/station_list_item.xml" value="0.1" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/menu/activity_main_drawer.xml" value="0.1578125" />
         <entry key="..\:/Users/kirpa/AndroidStudioProjects/EV-Connect/app/src/main/res/menu/home.xml" value="0.1578125" />
+        <entry key="app/src/main/res/layout/activity_register_user.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/fragment_challan.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/layout/fragment_e_profile.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/layout/fragment_fast_tag.xml" value="0.1213768115942029" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1099290780141844" />
+        <entry key="app/src/main/res/layout/insurance.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/nav_header_home.xml" value="0.13177083333333334" />
+        <entry key="app/src/main/res/layout/profile.xml" value="0.1099290780141844" />
+        <entry key="app/src/main/res/layout/rto.xml" value="0.22708333333333333" />
       </map>
     </option>
   </component>
