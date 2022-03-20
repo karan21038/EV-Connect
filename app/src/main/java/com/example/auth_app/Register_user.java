@@ -27,6 +27,8 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
     CheckBox car,bike;
     ProgressBar progressBar;
     Button reg_user;
+    TextView reg_no,owner_name,model,mfg_date,reg_upto;
+    TextView renewal_date,insurance_amount,premium_date,policy_holder,fastTag_bal,wallet;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,18 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
         car = (CheckBox) findViewById(R.id.Car);
         bike = (CheckBox) findViewById(R.id.Bike);
         ev_num = (EditText) findViewById(R.id.ev_reg_number);
+        reg_no=(TextView)findViewById(R.id.reg_no);
+        reg_upto=(TextView)findViewById(R.id.reg_upto);
+        owner_name=(TextView)findViewById(R.id.owner_name);
+        model=(TextView)findViewById(R.id.model_name);
+        mfg_date=(TextView)findViewById(R.id.mfg_date);
+        renewal_date=(TextView)findViewById(R.id.RenewalID);
+        insurance_amount=(TextView)findViewById(R.id.InsuranceAmountID);
+        premium_date=(TextView)findViewById(R.id.premiumID);
+        policy_holder=(TextView)findViewById(R.id.policyholderID);
+        fastTag_bal=(TextView)findViewById(R.id.fastamountID);
+        wallet=(TextView)findViewById(R.id.walletID);
+//        reg_no.toString();reg_upto.toString();
     }
 
     @Override

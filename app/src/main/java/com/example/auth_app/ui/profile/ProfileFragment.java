@@ -2,65 +2,160 @@ package com.example.auth_app.ui.profile;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.auth_app.R;
+import com.example.auth_app.User;
+import com.example.auth_app.databinding.FragmentProfileBinding;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link ProfileFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class ProfileFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    private FirebaseAuth firebaseAuth;
+    private FirebaseDatabase firebaseDatabase;
+    FirebaseFirestore firestore;
+   private FragmentProfileBinding binding;
 
-    public ProfileFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ProfileFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ProfileFragment newInstance(String param1, String param2) {
-        ProfileFragment fragment = new ProfileFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    View view;
+    Button rto,insurance,fastag,challan;
+    TextView profile_name,wallet_amount;
+    private FragmentTransaction fragmentTransaction;
+    private FragmentManager fragmentManager;
+    private String userID;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false);
+        binding=FragmentProfileBinding.inflate(inflater,container,false);
+//        view =  inflater.inflate(R.layout.fragment_profile, container, false);
+        View view=binding.getRoot();
+        rto = (Button) view.findViewById(R.id.RTOID);
+        insurance=(Button) view.findViewById(R.id.InsuranceID);
+        fastag=(Button)view.findViewById(R.id.FastTagID);
+        challan=(Button) view.findViewById(R.id.ChallanID);
+        profile_name=(TextView)view.findViewById(R.id.profileID);
+        wallet_amount=(TextView)view.findViewById(R.id.walletID);
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        firestore=FirebaseFirestore.getInstance();
+        userID = firebaseAuth.getCurrentUser().getUid();
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Users").child(userID);
+        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot mainSnapshot) {
+                ProfileData userProfile = mainSnapshot.getValue(ProfileData.class);
+                if(userProfile!=null) {
+                    String wallet1 = userProfile.wallet_amount;
+                    wallet_amount.setText("Balance: " + wallet1);
+
+                }
+            }
+        @Override
+        public void onCancelled(DatabaseError databaseError) {
+        }
+    });
+
+//
+        rto.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            rto.setVisibility(View.GONE);
+            insurance.setVisibility(View.GONE);
+            fastag.setVisibility(View.GONE);
+            challan.setVisibility(View.GONE);
+            profile_name.setVisibility(View.GONE);
+            wallet_amount.setVisibility(View.GONE);
+
+            FragmentTransaction fragmentTransaction = getActivity()
+                    .getSupportFragmentManager().beginTransaction();
+            fragmentTransaction.replace(R.id.container, new RTO()).addToBackStack(null);
+            fragmentTransaction.commit();
+        }
+    });
+
+        insurance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rto.setVisibility(View.GONE);
+                insurance.setVisibility(View.GONE);
+                fastag.setVisibility(View.GONE);
+                challan.setVisibility(View.GONE);
+                profile_name.setVisibility(View.GONE);
+                wallet_amount.setVisibility(View.GONE);
+
+                FragmentTransaction fragmentTransaction = getActivity()
+                        .getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, new Insurance()).addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        fastag.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rto.setVisibility(View.GONE);
+                insurance.setVisibility(View.GONE);
+                fastag.setVisibility(View.GONE);
+                challan.setVisibility(View.GONE);
+                profile_name.setVisibility(View.GONE);
+                wallet_amount.setVisibility(View.GONE);
+
+
+                FragmentTransaction fragmentTransaction = getActivity()
+                        .getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, new FastTag()).addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        challan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                rto.setVisibility(View.GONE);
+                insurance.setVisibility(View.GONE);
+                fastag.setVisibility(View.GONE);
+                challan.setVisibility(View.GONE);
+                profile_name.setVisibility(View.GONE);
+                wallet_amount.setVisibility(View.GONE);
+
+                FragmentTransaction fragmentTransaction = getActivity()
+                        .getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, new Challan()).addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
+        return view;
     }
 }
