@@ -24,7 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class Register_user extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     TextView banner;
-    EditText ename,eage,eemail,epassword,ev_num;
+    EditText ename,eage,eemail,epassword,ev_num,city;
     CheckBox car,bike;
     ProgressBar progressBar;
     Button reg_user;
@@ -54,6 +54,7 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
         model=(TextView)findViewById(R.id.model_name);
         mfg_date=(TextView)findViewById(R.id.mfg_date);
         renewal_date=(TextView)findViewById(R.id.RenewalID);
+        city = (EditText)findViewById(R.id.city_name);
         insurance_amount=(TextView)findViewById(R.id.InsuranceAmountID);
         premium_date=(TextView)findViewById(R.id.premiumID);
         policy_holder=(TextView)findViewById(R.id.policyholderID);
@@ -80,6 +81,7 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
         String password = epassword.getText().toString().trim();
         String ev_type_reg="";
         String ev_number = ev_num.getText().toString();
+        String city_name_t = city.getText().toString();
         if(name.isEmpty()){
             ename.setError("Full name is required");
             ename.requestFocus();
@@ -117,6 +119,11 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
             ev_num.requestFocus();
             return;
         }
+        if(city_name_t.isEmpty()){
+            city.setError("Enter City Name!");
+            city.requestFocus();
+            return;
+        }
         if(email.isEmpty()){
             eemail.setError("Email is required");
             eemail.requestFocus();
@@ -144,7 +151,7 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
-                    User user = new User(name,age,email, finalEv_type_reg,ev_number);
+                    User user = new User(name,age,email,city_name_t, finalEv_type_reg,ev_number);
                     FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance()
                             .getCurrentUser()
                             .getUid()).setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -159,14 +166,14 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
                             }
                             else{
                                 FirebaseAuthException e = (FirebaseAuthException )task.getException();
-                                Toast.makeText(Register_user.this,"Failed! Try again " + e.getMessage(),Toast.LENGTH_LONG).show();
+                                Toast.makeText(Register_user.this,"Failed! Try again" + e.getMessage(),Toast.LENGTH_LONG).show();
                                 progressBar.setVisibility(View.GONE);
                             }
                         }
                     });
                 }else{
                     FirebaseAuthException e = (FirebaseAuthException )task.getException();
-                    Toast.makeText(Register_user.this,"Failed! Try again "+e.getMessage(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(Register_user.this,"Failed! Try again" + e.getMessage(),Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
             }
