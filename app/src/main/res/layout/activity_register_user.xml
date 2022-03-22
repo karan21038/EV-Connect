@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_try10"
+    android:background="@drawable/bg_try17"
     tools:context=".Register_user">
 
     <TextView
@@ -43,6 +43,7 @@
         android:id="@+id/reg_name"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:textColor="@color/white"
         android:ems="10"
         android:hint="Enter Name"
         android:inputType="textPersonName"
@@ -50,15 +51,16 @@
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225" />
+        app:layout_constraintVertical_bias="0.215" />
 
     <EditText
         android:id="@+id/reg_age"
         android:layout_width="300dp"
         android:layout_height="50dp"
+        android:textColor="@color/white"
         android:ems="10"
         android:hint="Enter Age"
         android:inputType="textPersonName"
@@ -66,26 +68,28 @@
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.326" />
+        app:layout_constraintVertical_bias="0.308" />
+
 
     <EditText
         android:id="@+id/reg_email"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:ems="10"
+        android:textColor="@color/white"
         android:hint="Enter Email"
         android:inputType="textPersonName"
         android:padding="5dp"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.436" />
+        app:layout_constraintVertical_bias="0.406" />
 
     <CheckBox
         android:id="@+id/Car"
@@ -96,10 +100,10 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.145"
+        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.534" />
+        app:layout_constraintVertical_bias="0.612" />
 
     <CheckBox
         android:id="@+id/Bike"
@@ -110,27 +114,27 @@
         android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.754"
+        app:layout_constraintHorizontal_bias="0.745"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.534" />
+        app:layout_constraintVertical_bias="0.612" />
 
     <EditText
         android:id="@+id/ev_reg_number"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:ems="10"
-        android:hint="Enter EV Registration Number"
+        android:hint="Enter EV Number"
         android:inputType="number"
         android:padding="5dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.636" />
-
+        app:layout_constraintVertical_bias="0.718" />
 
     <EditText
         android:id="@+id/reg_password"
@@ -141,20 +145,20 @@
         android:inputType="textPassword"
         android:padding="5dp"
         android:textColorHint="@color/white"
-        app:layout_constraintHorizontal_bias="0.37"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.74" />
+        app:layout_constraintVertical_bias="0.838" />
 
     <Button
         android:id="@+id/reg_user"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:textSize="25dp"
-        android:textColor="@color/white"
-        android:backgroundTint="@color/purple_700"
+        android:background="@color/white"
         android:text="Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -174,5 +178,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.554" />
+
+    <EditText
+        android:id="@+id/city_name"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColorHint="@color/white"
+        android:textColor="@color/white"
+        android:text="Delhi"
+        android:hint="Enter City"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.369"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
