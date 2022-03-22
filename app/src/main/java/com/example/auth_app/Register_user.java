@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class Register_user extends AppCompatActivity implements View.OnClickListener{
@@ -157,13 +158,15 @@ public class Register_user extends AppCompatActivity implements View.OnClickList
                                 startActivity(new Intent(Register_user.this,MainActivity.class));
                             }
                             else{
-                                Toast.makeText(Register_user.this,"Failed! Try again",Toast.LENGTH_LONG).show();
+                                FirebaseAuthException e = (FirebaseAuthException )task.getException();
+                                Toast.makeText(Register_user.this,"Failed! Try again " + e.getMessage(),Toast.LENGTH_LONG).show();
                                 progressBar.setVisibility(View.GONE);
                             }
                         }
                     });
                 }else{
-                    Toast.makeText(Register_user.this,"Failed! Try again",Toast.LENGTH_LONG).show();
+                    FirebaseAuthException e = (FirebaseAuthException )task.getException();
+                    Toast.makeText(Register_user.this,"Failed! Try again "+e.getMessage(),Toast.LENGTH_LONG).show();
                     progressBar.setVisibility(View.GONE);
                 }
             }

@@ -192,7 +192,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                 Log.i("", "Current Location : " + latitude_current_loc + ", " + longitude_current_loc);
 
                 //Database work
-                for(int i=1;i<=6;i++) {
+                for(int i=1;i<=20;i++) {
 
                     int finalI = i;
                     FirebaseDatabase.getInstance().getReference().child("Stations").child(String.valueOf(i)).addValueEventListener(new ValueEventListener() {
@@ -252,7 +252,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                                     status = "Closed Now";
 
                                 Log.i("","Station Time Hour"+strt_time_hour+close_time_hour);
-                                if(results[0]<=6000.0) {
+                                if(results[0]<=10000.0) {
                                     distance_from_curr_location = results[0]/1000;
                                     String temp = String.format("%.2f",distance_from_curr_location);
                                     distance_from_curr_location = Double.parseDouble(temp);
@@ -297,7 +297,10 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
         double rating = modelObject.getRatings();
         double latitude = modelObject.getLati();
         double longitude = modelObject.getLongi();
-        String res = station_num+"$"+station_name+"$"+address+"$"+price+"$"+rating+"$"+latitude+"$"+longitude;
+        String status = modelObject.getStatus();
+        String opening_time = modelObject.getStrt_time();
+        String closing_time = modelObject.getStop_time();
+        String res = station_num+"$"+station_name+"$"+address+"$"+price+"$"+rating+"$"+latitude+"$"+longitude+"$"+status+"$"+opening_time+"$"+closing_time;
 
         Intent serviceIntent = new Intent(getActivity(), StationDetailsActivity.class);
         serviceIntent.putExtra(EXTRA_TEXT,res);

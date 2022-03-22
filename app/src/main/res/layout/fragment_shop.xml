@@ -8,7 +8,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:id="@+id/shop_frame">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/shopRecyclerView"
@@ -16,4 +17,5 @@
             android:layout_height="match_parent"/>
 
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

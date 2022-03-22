@@ -24,7 +24,13 @@
             android:name=".ui.maps.StationMapActivity"
             android:exported="false" />
         <activity
+            android:name=".ui.maps.ShopMapActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.stations.StationDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.shops.ShopDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".HomeActivity"

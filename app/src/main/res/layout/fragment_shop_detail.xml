@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".ui.stations.StationDetailFragment">
+    tools:context=".ui.shops.ShopDetailFragment">
 
     <TextView
         android:layout_width="match_parent"
@@ -13,16 +13,15 @@
         android:layout_marginTop="30dp"
         android:textAlignment="center"
         android:textSize="50sp"
-        android:id="@+id/station_name" />
-
+        android:id="@+id/shop_name" />
     <TextView
-        android:id="@+id/station_address"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
         android:hint="Address"
+        android:layout_marginTop="250dp"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="30sp"
+        android:id="@+id/shop_address" />
 
     <TextView
         android:layout_width="match_parent"
@@ -31,7 +30,7 @@
         android:layout_marginTop="300dp"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:id="@+id/station_status" />
+        android:id="@+id/shop_status" />
 
     <TextView
         android:layout_width="match_parent"
@@ -40,7 +39,7 @@
         android:layout_marginTop="350dp"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:id="@+id/station_opening_time" />
+        android:id="@+id/shop_opening_time" />
 
     <TextView
         android:layout_width="match_parent"
@@ -49,10 +48,10 @@
         android:layout_marginTop="400dp"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:id="@+id/station_closing_time" />
+        android:id="@+id/shop_closing_time" />
 
     <TextView
-        android:id="@+id/station_price"
+        android:id="@+id/shop_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="450dp"
@@ -66,9 +65,9 @@
         android:layout_marginTop="500dp"
         android:textAlignment="center"
         android:textSize="30sp"
-        android:id="@+id/station_rating" />
+        android:id="@+id/shop_rating" />
     <Button
-        android:id="@+id/station_track"
+        android:id="@+id/shop_track"
         android:layout_width="300dp"
         android:layout_height="60dp"
         android:layout_gravity="center"

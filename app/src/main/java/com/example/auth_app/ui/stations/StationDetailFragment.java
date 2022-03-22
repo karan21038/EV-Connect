@@ -25,6 +25,9 @@ public class StationDetailFragment extends Fragment {
     public TextView stn_detail_rating;
     public double latitude;
     public double longitude;
+    public TextView stn_detail_status;
+    public TextView stn_detail_opening_time;
+    public TextView stn_detail_closing_time;
     public Button trackStationBtn;
     private int mParam1;
     //public StationListItem modelObject;
@@ -64,7 +67,9 @@ public class StationDetailFragment extends Fragment {
         stn_detail_addr = view.findViewById(R.id.station_address);
         stn_detail_price = view.findViewById(R.id.station_price);
         stn_detail_rating = view.findViewById(R.id.station_rating);
-
+        stn_detail_status = view.findViewById(R.id.station_status);
+        stn_detail_opening_time = view.findViewById(R.id.station_opening_time);
+        stn_detail_closing_time = view.findViewById(R.id.station_closing_time);
 
         //Splitting result
         String[] res_arr = result.split("\\$");
@@ -72,10 +77,12 @@ public class StationDetailFragment extends Fragment {
 
         Log.i("Result",res_arr[0]);
         stn_detail_name.setText(res_arr[1]);
-        stn_detail_addr.setText("Address: " + res_arr[2]);
+        stn_detail_addr.setText("" + res_arr[2]);
         stn_detail_price.setText("Price: " + String.valueOf(res_arr[3]));
         stn_detail_rating.setText("Rating: " + String.valueOf(res_arr[4]));
-
+        stn_detail_status.setText(""+res_arr[7]);
+        stn_detail_opening_time.setText("Opens at : "+res_arr[8]);
+        stn_detail_closing_time.setText("Closes at : "+res_arr[9]);
 
         longitude = Double.parseDouble(res_arr[5]);
         latitude = Double.parseDouble(res_arr[6]);
@@ -99,7 +106,4 @@ public class StationDetailFragment extends Fragment {
         //sts_detail_num.setText(String.valueOf(sts_number));;
         return view;
     }
-
-
-
 }

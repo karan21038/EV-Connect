@@ -15,8 +15,7 @@ import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.example.auth_app.R;
-import com.example.auth_app.ui.stations.StationDetailFragment;
-import com.example.auth_app.ui.stations.StationFragment;
+import com.example.auth_app.ui.shops.ShopDetailFragment;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -40,9 +39,9 @@ import com.karumi.dexter.listener.single.PermissionListener;
 import java.security.Permission;
 import java.util.Map;
 
-public class StationMapActivity extends AppCompatActivity {
+public class ShopMapActivity extends AppCompatActivity {
 
-    SupportMapFragment smf;
+    SupportMapFragment smf2;
     FusedLocationProviderClient client;
 
     double latitude_destination;
@@ -51,16 +50,16 @@ public class StationMapActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_station_map);
+        setContentView(R.layout.activity_shop_map);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Intent intent = getIntent();
-        String result = intent.getStringExtra(StationDetailFragment.EXTRA_TEXT);
+        String result = intent.getStringExtra(ShopDetailFragment.EXTRA_TEXT);
         String[] res_arr = result.split("\\$");
         latitude_destination = Double.parseDouble(res_arr[0]);
         longitude_destination = Double.parseDouble(res_arr[1]);
 
-        smf = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map);
+        smf2 = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.google_map_shop);
         client = LocationServices.getFusedLocationProviderClient(this);
 
         Dexter.withContext(getApplicationContext())
@@ -68,7 +67,7 @@ public class StationMapActivity extends AppCompatActivity {
                 .withListener(new PermissionListener() {
                     @Override
                     public void onPermissionGranted(PermissionGrantedResponse permissionGrantedResponse) {
-                        getmylocation();
+                        getmylocationShop();
                     }
 
                     @Override
@@ -95,11 +94,11 @@ public class StationMapActivity extends AppCompatActivity {
             @Override
             public void onLocationResult(LocationResult locationResult) {
                 if (locationResult == null) {
-                    Toast.makeText(StationMapActivity.this, "Please enable location services", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ShopMapActivity.this, "Please enable location services", Toast.LENGTH_SHORT).show();
                 }
                 for (Location location : locationResult.getLocations()) {
                     if (location != null) {
-                        getmylocation();
+                        getmylocationShop();
                     }
                 }
             }
@@ -117,7 +116,7 @@ public class StationMapActivity extends AppCompatActivity {
         LocationServices.getFusedLocationProviderClient(getApplicationContext()).requestLocationUpdates(mLocationRequest, mLocationCallback, null);
     }
 
-    public void getmylocation() {
+    public void getmylocationShop() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -134,7 +133,7 @@ public class StationMapActivity extends AppCompatActivity {
             @Override
             public void onSuccess(final Location location) {
                 Log.i("","Current Location Map Activity: "+location.getLatitude() + ", "+ location.getLongitude());
-                smf.getMapAsync(new OnMapReadyCallback() {
+                smf2.getMapAsync(new OnMapReadyCallback() {
                     @Override
                     public void onMapReady(GoogleMap googleMap) {
 
@@ -153,7 +152,7 @@ public class StationMapActivity extends AppCompatActivity {
                             googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng_dest, 14));
                         }
                         catch(Exception e){
-                            Toast.makeText(StationMapActivity.this, "Please enable location services", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ShopMapActivity.this, "Please enable location services", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
