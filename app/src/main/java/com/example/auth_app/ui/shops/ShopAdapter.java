@@ -21,6 +21,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
     private ShopFragment shopFragment;
     private List<ShopListItem> shopListItems;
@@ -67,6 +69,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
         holder.shop_status.setText(String.valueOf(shopListItems.get(position).getStatus()));
 //        holder.shop_img.setImageBitmap(getBitmapFromURL(ShopFragment.url));
 //        Picasso.get().load(ShopFragment.url).into(holder.stn_img);
+        holder.shop_img.setImageResource(shopListItems.get(position).getImage());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -86,7 +89,7 @@ public class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
 
         public TextView shop_name, shop_price, shop_rating, shop_distance, shop_status;
         public String url;
-        public ImageView  shop_img;
+        public CircleImageView shop_img;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             shop_name = itemView.findViewById(R.id.shop_name);

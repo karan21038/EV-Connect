@@ -13,8 +13,9 @@ public class ShopListItem {
     public double distance;
     public String status;
     public String url;
+    public int image;
 
-    public ShopListItem(int shop_num, String shop_name, double lati, double longi, String strt_time, String stop_time, double ratings, String address, double distance, String status, String url, String contact_number) {
+    public ShopListItem(int shop_num, String shop_name, double lati, double longi, String strt_time, String stop_time, double ratings, String address, double distance, String status, String url, String contact_number, int image) {
         this.shop_num = shop_num;
         this.shop_name = shop_name;
         this.lati = lati;
@@ -26,6 +27,15 @@ public class ShopListItem {
         this.address = address;
         this.distance = distance;
         this.status = status;
+        this.image =image;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public int getShop_num() {

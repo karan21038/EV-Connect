@@ -12,8 +12,9 @@ public class StationListItem {
     public String address;
     public double distance;
     public String status;
+    public int image;
 
-    public StationListItem(int station_num, String station_name, double lati, double longi, double price, String strt_time, String stop_time, double ratings, String address, double distance, String status) {
+    public StationListItem(int station_num, String station_name, double lati, double longi, double price, String strt_time, String stop_time, double ratings, String address, double distance, String status, int image) {
         this.station_num = station_num;
         this.station_name = station_name;
         this.lati = lati;
@@ -25,6 +26,15 @@ public class StationListItem {
         this.address = address;
         this.distance = distance;
         this.status = status;
+        this.image=image;
+    }
+
+    public int getImage() {
+        return image;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
     }
 
     public int getStation_num() {

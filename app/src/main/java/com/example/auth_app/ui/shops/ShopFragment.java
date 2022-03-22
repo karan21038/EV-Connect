@@ -41,6 +41,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.Random;
+
 public class ShopFragment extends Fragment implements ShopAdapter.ItemClickListener{
 
     private static final long MIN_TIME_BW_UPDATES = 10;
@@ -71,6 +73,8 @@ public class ShopFragment extends Fragment implements ShopAdapter.ItemClickListe
     public int current_time_hour;
     public String status;
     public double distance_from_curr_location;
+    public int image_station;
+    public int k=0;
 //    @Override
 //    public void onStart() {
 //        super.onStart();
@@ -188,6 +192,8 @@ public class ShopFragment extends Fragment implements ShopAdapter.ItemClickListe
                 }
                 Log.i("", "Current Location : " + latitude_current_loc + ", " + longitude_current_loc);
 
+                int[] images_station = {R.drawable.aa,R.drawable.ab,R.drawable.ac,R.drawable.ad,R.drawable.ae,R.drawable.af,R.drawable.ag,R.drawable.ah,R.drawable.aj,R.drawable.ak,R.drawable.al,R.drawable.am,R.drawable.an,R.drawable.ao,R.drawable.ap,R.drawable.aq,R.drawable.ar,R.drawable.as};
+
                 //Database work
                 for(int i=1;i<=10;i++) {
 
@@ -227,6 +233,9 @@ public class ShopFragment extends Fragment implements ShopAdapter.ItemClickListe
 
                                 String strt_time_hour_str = "";
 
+                                Random rd = new Random();
+                                int temp_rk = rd.nextInt(17);
+
                                 if(!str2.equals(":"))
                                     strt_time_hour_str = str1+str2;
                                 else if(str2.equals(":"))
@@ -252,13 +261,19 @@ public class ShopFragment extends Fragment implements ShopAdapter.ItemClickListe
                                     status = "Opened Now";
                                 else
                                     status = "Closed Now";
-
+                                if(k<17) {
+                                    image_station = images_station[k++];
+                                    Log.i("", "K value: " + k);
+                                }
+                                else{
+                                    image_station = images_station[temp_rk];
+                                }
                                 Log.i("","Shop Time Hour"+strt_time_hour+close_time_hour);
                                 if(results[0]<=6000.0) {
                                     distance_from_curr_location = results[0]/1000;
                                     String temp = String.format("%.2f",distance_from_curr_location);
                                     distance_from_curr_location = Double.parseDouble(temp);
-                                    shopListItems.add(new ShopListItem(finalI, name, lati, longi, strtTime, closeTime, rating, address, distance_from_curr_location, status, url,contact_number));
+                                    shopListItems.add(new ShopListItem(finalI, name, lati, longi, strtTime, closeTime, rating, address, distance_from_curr_location, status, url,contact_number,image_station));
                                 }
                             }
                             adapter = new ShopAdapter(shopListItems, ShopFragment.this, ShopFragment.this);

@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Map;
+import java.util.Random;
 
 public class StationFragment extends Fragment implements StationAdapter.ItemClickListener{
 
@@ -74,6 +75,9 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
     public int current_time_hour;
     public String status;
     public double distance_from_curr_location;
+    public int image_station;
+    public int k=0;
+   // public static String url;
 //    @Override
 //    public void onStart() {
 //        super.onStart();
@@ -190,7 +194,8 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                     Toast.makeText(getContext(), "Please enable location services", Toast.LENGTH_SHORT).show();
                 }
                 Log.i("", "Current Location : " + latitude_current_loc + ", " + longitude_current_loc);
-
+                int[] images_station = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r,R.drawable.s};
+               // int k=0;
                 //Database work
                 for(int i=1;i<=20;i++) {
 
@@ -212,6 +217,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                                 strtTime = (String) map.get("Starting Time");
                                 closeTime = (String) map.get("Closing Time");
                                 rating = (double) map.get("Rating");
+                                //url = (String) map.get("img-url");
 //               Log.i("TAG", "MAPPPPPP>>>>>: "+map);
                                 Log.i("TAG", "KRKRKRKRK>>>>>: " + rating);
                                 android.location.Location.distanceBetween(latitude_current_loc,longitude_current_loc,lati,longi,results);
@@ -239,6 +245,9 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                                 String str3 = String.valueOf(a1);
                                 String str4 = String.valueOf(b1);
 
+                                Random rd = new Random();
+                                int temp_rk = rd.nextInt(17);
+
                                 if(!str4.equals(":"))
                                     close_time_hour_str = str3+str4;
                                 else if(str4.equals(":"))
@@ -252,11 +261,20 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                                     status = "Closed Now";
 
                                 Log.i("","Station Time Hour"+strt_time_hour+close_time_hour);
+                                if(k<17) {
+                                    image_station = images_station[k++];
+                                    Log.i("", "K value: " + k);
+                                }
+                                else{
+                                    image_station = images_station[temp_rk];
+                                }
                                 if(results[0]<=10000.0) {
                                     distance_from_curr_location = results[0]/1000;
                                     String temp = String.format("%.2f",distance_from_curr_location);
                                     distance_from_curr_location = Double.parseDouble(temp);
-                                    stationListItems.add(new StationListItem(finalI, name, lati, longi, price, strtTime, closeTime, rating, address, distance_from_curr_location, status));
+
+                                    //Log.i("","K value: "+finalK);
+                                    stationListItems.add(new StationListItem(finalI, name, lati, longi, price, strtTime, closeTime, rating, address, distance_from_curr_location, status,image_station));
                                 }
                             }
                             adapter = new StationAdapter(stationListItems, StationFragment.this, StationFragment.this);

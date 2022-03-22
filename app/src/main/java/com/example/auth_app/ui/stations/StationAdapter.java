@@ -1,23 +1,30 @@
 package com.example.auth_app.ui.stations;
 
 import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.auth_app.R;
+import com.google.android.gms.maps.model.Circle;
 
+import java.io.InputStream;
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHolder> {
     private StationFragment stationFragment;
     private List<StationListItem> stationListItems;
     private ItemClickListener clickListener;
+    public String url;
 
     public StationAdapter(List<StationListItem> stationListItems,StationFragment stationFragment, ItemClickListener clickListener) {
         this.stationListItems = stationListItems;
@@ -40,6 +47,9 @@ public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHold
         //holder.stn_price.setText("Price - " + String.valueOf(stationListItems.get(position).getPrice()));
         holder.stn_distance.setText(String.valueOf(stationListItems.get(position).getDistance()) + " Km away");
         holder.stn_status.setText(String.valueOf(stationListItems.get(position).getStatus()));
+//        InputStream inputStream = (InputStream)(stationListItems.get(position).getUrl()).;
+//        Drawable drawable = Drawable.createFromStream(inputStream, null);
+        holder.stn_image.setImageResource(stationListItems.get(position).getImage());
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,6 +68,7 @@ public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHold
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView stn_name, stn_price, stn_rating, stn_distance, stn_status;
+        public CircleImageView stn_image;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             stn_name = itemView.findViewById(R.id.station_name);
@@ -65,6 +76,7 @@ public class StationAdapter extends RecyclerView.Adapter<StationAdapter.ViewHold
             stn_rating = itemView.findViewById(R.id.station_rating);
             stn_distance = itemView.findViewById(R.id.station_distance);
             stn_status = itemView.findViewById(R.id.station_status);
+            stn_image = itemView.findViewById(R.id.station_image);
         }
     }
 
