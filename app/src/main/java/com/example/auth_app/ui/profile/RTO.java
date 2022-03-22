@@ -3,11 +3,15 @@ package com.example.auth_app.ui.profile;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.auth_app.R;
 import com.example.auth_app.User;
@@ -22,34 +26,19 @@ import com.google.firebase.firestore.FirebaseFirestore;
 
 public class RTO extends Fragment {
 
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    private String mParam1;
-    private String mParam2;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     FirebaseFirestore firestore;
     private String userID;
+    public Button back;
     private FirebaseAuth.AuthStateListener mAuthListener;
     TextView reg_no,owner_name,model,mfg_dt,reg_upto;
 
-    public static RTO newInstance(String param1, String param2) {
-        RTO fragment = new RTO();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+
     }
 
     @Override
@@ -62,7 +51,16 @@ public class RTO extends Fragment {
         owner_name=(TextView)v.findViewById(R.id.owner_name);
         model=(TextView)v.findViewById(R.id.model_name);
         mfg_dt=(TextView)v.findViewById(R.id.mfg_date);
-
+        back=(Button)v.findViewById(R.id.rtoback);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction fragmentTransaction = getActivity()
+                        .getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, new ProfileFragment()).addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -73,11 +71,12 @@ public class RTO extends Fragment {
             @Override
             public void onDataChange(DataSnapshot mainSnapshot) {
                 ProfileData userProfile = mainSnapshot.getValue(ProfileData.class);
-               reg_no.setText(userProfile.u_RegistrationNo);
-               reg_upto.setText(userProfile.RegtUpto);
-               owner_name.setText(userProfile.u_OwnerName);
-               model.setText(userProfile.Model);
-               mfg_dt.setText(userProfile.MfgDate);
+                String ren=userProfile.model;
+                    reg_no.setText(userProfile.u_RegistrationNo);
+                    reg_upto.setText(userProfile.regtUpto);
+                    owner_name.setText(userProfile.u_OwnerName);
+                    model.setText(userProfile.model);
+                    mfg_dt.setText(userProfile.mfgDate);
 
             }
             @Override

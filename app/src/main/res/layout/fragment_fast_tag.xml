@@ -29,17 +29,32 @@
         android:textStyle="bold"
         android:textSize="30dp"
         android:gravity="center"
-        android:text="Amount" />
+        android:text="Balance" />
+
     <TextView
         android:id="@+id/fastamountID"
-        android:layout_width="77dp"
+        android:layout_width="94dp"
         android:layout_height="100dp"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="170dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
+        android:hint="Fetch Amount"
+        android:text="3600"
         android:textColor="@color/white"
-        android:hint="Fetch Amount" />
+        android:textSize="30dp" />
 
+    <Button
+        android:id="@+id/fasttagback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:background="@color/design_default_color_primary"
+        android:text="Back">
 
+    </Button>
 
 </LinearLayout>

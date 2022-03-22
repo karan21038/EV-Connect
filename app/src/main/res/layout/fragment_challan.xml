@@ -28,5 +28,18 @@
         android:textStyle="italic"
         android:text= " 1. Overspeeding Challan on NH-24 on 20/01/2022, Amount=2000 \n \n2. Overspeeding Challan on NH-24 on 10/08/2021, Amount=1500"/>
 
+    <Button
+        android:id="@+id/challanback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="380dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/design_default_color_primary"
+        android:text="Back"
+        android:textColor="@color/white">
+
+    </Button>
 
 </LinearLayout>

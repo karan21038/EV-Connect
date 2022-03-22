@@ -141,4 +141,18 @@
         android:fontFamily="casual"
         android:textColor="@color/white"/>
 
+    <Button
+        android:id="@+id/insuranceback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/white"
+        android:background="@color/design_default_color_primary"
+        android:text="Back">
+
+    </Button>
+
 </LinearLayout>
