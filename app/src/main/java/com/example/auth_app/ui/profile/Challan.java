@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.auth_app.R;
-import com.example.auth_app.databinding.FragmentProfileBinding;
+import com.example.auth_app.ui.EVDetails.ProfileFormFragment;
 
 
 public class Challan extends Fragment {
@@ -28,17 +28,18 @@ public class Challan extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
        View view= inflater.inflate(R.layout.fragment_challan, container, false);
         back=(Button)view.findViewById(R.id.challanback);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//
                 FragmentTransaction fragmentTransaction = getActivity()
                         .getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.replace(R.id.container, new ProfileFragment()).addToBackStack(null);
                 fragmentTransaction.commit();
+
             }
         });
         return view;

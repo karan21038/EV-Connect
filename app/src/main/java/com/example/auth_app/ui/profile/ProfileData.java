@@ -5,6 +5,58 @@ public class ProfileData {
    public String mfgDate;
     public String model;
     public String regtUpto;
+    public String ev_number;
+    public String ev_type;
+    public String u_FastTagBalance;
+
+
+    public String u_InsuranceAmount;
+    public String u_OwnerName;
+    public String u_PolicyHolder;
+    public String u_PremiumDate;
+    public String u_RegistrationNo;
+    public String u_RenewalDate;
+    public String u_age;
+    public String u_email;
+    public String u_name;
+    public String wallet_amount;
+
+
+    public String getmodel() {
+        return model;
+    }
+
+    public void setmodel(String model) {
+        this.model = model;
+    }
+
+
+    public String getEv_number() {
+        return ev_number;
+    }
+
+    public void setEv_number(String ev_number) {
+        this.ev_number = ev_number;
+    }
+
+    public String getEv_type() {
+        return ev_type;
+    }
+
+    public void setEv_type(String ev_type) {
+        this.ev_type = ev_type;
+    }
+
+    public String getU_city() {
+        return u_city;
+    }
+
+    public void setU_city(String u_city) {
+        this.u_city = u_city;
+    }
+
+    public String u_city;
+
 
     public String getMfgDate() {
         return mfgDate;
@@ -14,13 +66,13 @@ public class ProfileData {
         mfgDate = mfgDatesss;
     }
 
-    public String getmodel() {
-        return model;
-    }
-
-    public void setmodel(String model) {
-        model = this.model;
-    }
+//    public String getmodel() {
+//        return model;
+//    }
+//
+//    public void setmodel(String model) {
+//        model = this.model;
+//    }
 
     public String getregtUpto() {
         return regtUpto;
@@ -118,12 +170,17 @@ public class ProfileData {
         this.wallet_amount = wallet_amount;
     }
 
-    public String u_FastTagBalance;
+    public ProfileData() {
 
-    public ProfileData(String MfgDate, String Model, String RegtUpto, String u_FastTagBalance, String u_InsuranceAmount, String u_OwnerName, String u_PolicyHolder, String u_PremiumDate, String u_RegistrationNo, String u_RenewalDate, String u_age, String u_email, String u_name, String wallet_amount) {
-        this.mfgDate = MfgDate;
-        this.model = Model;
-        this.regtUpto = RegtUpto;
+    }
+
+    public ProfileData(String mfgDate, String model, String regtUpto, String ev_number, String ev_type, String u_city, String u_FastTagBalance, String u_InsuranceAmount, String u_OwnerName, String u_PolicyHolder, String u_PremiumDate, String u_RegistrationNo, String u_RenewalDate, String u_age, String u_email, String u_name, String wallet_amount) {
+        this.mfgDate = mfgDate;
+        this.model = model;
+        this.regtUpto = regtUpto;
+        this.ev_number = ev_number;
+        this.ev_type = ev_type;
+        this.u_city = u_city;
         this.u_FastTagBalance = u_FastTagBalance;
         this.u_InsuranceAmount = u_InsuranceAmount;
         this.u_OwnerName = u_OwnerName;
@@ -136,23 +193,4 @@ public class ProfileData {
         this.u_name = u_name;
         this.wallet_amount = wallet_amount;
     }
-
-    public String u_InsuranceAmount;
-    public String u_OwnerName;
-    public String u_PolicyHolder;
-    public String u_PremiumDate;
-    public String u_RegistrationNo;
-    public String u_RenewalDate;
-    public String u_age;
-    public String u_email;
-    public String u_name;
-    public String wallet_amount;
-
-    public ProfileData() {
-
-    }
-
-
-
-
 }
