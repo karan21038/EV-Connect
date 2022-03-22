@@ -37,13 +37,13 @@ android:orientation="vertical">
         android:gravity="center"
         android:textSize="30dp"
         android:textStyle="italic"
-        android:text="Fetch Wallet Amount"
+        android:hint="Fetch Wallet Amount"
         android:fontFamily="casual"
         android:layout_marginTop="200dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
         android:textColor="@color/white"
-
+        android:text="Rs. 100"
         android:height="80dp"/>
 
     <LinearLayout

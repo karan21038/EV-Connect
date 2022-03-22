@@ -23,4 +23,10 @@
         android:label="@string/menu_shops"
         tools:layout="@layout/fragment_shop" />
 
+    <fragment
+        android:id="@+id/nav_profileForm"
+        android:name="com.example.auth_app.ui.EVDetails.ProfileFormFragment"
+        android:label="@string/menu_form"
+        tools:layout="@layout/fragment_profile_form"/>
+
 </navigation>

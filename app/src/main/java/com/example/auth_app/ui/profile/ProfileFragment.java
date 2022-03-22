@@ -7,6 +7,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,7 +62,6 @@ public class ProfileFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         binding=FragmentProfileBinding.inflate(inflater,container,false);
-//        view =  inflater.inflate(R.layout.fragment_profile, container, false);
         View view=binding.getRoot();
         rto = (Button) view.findViewById(R.id.RTOID);
         insurance=(Button) view.findViewById(R.id.InsuranceID);
@@ -132,6 +132,7 @@ public class ProfileFragment extends Fragment {
                 challan.setVisibility(View.GONE);
                 profile_name.setVisibility(View.GONE);
                 wallet_amount.setVisibility(View.GONE);
+
 
 
                 FragmentTransaction fragmentTransaction = getActivity()
