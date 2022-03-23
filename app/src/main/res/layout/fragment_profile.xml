@@ -12,7 +12,7 @@ android:orientation="vertical">
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/container"
-    android:background="@drawable/bg_try10"
+    android:background="@drawable/bg_try17"
     tools:context=".ui.profile.ProfileFragment">
 
     <TextView
@@ -60,10 +60,10 @@ android:orientation="vertical">
             android:layout_marginTop="20dp"
             android:layout_marginRight="50dp"
             android:layout_weight="1"
-            android:background="#5E21E6"
+            android:background="@color/white"
             android:text="FastTag"
             android:textStyle="italic"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/InsuranceID"
@@ -73,10 +73,10 @@ android:orientation="vertical">
             android:layout_marginTop="20dp"
             android:layout_marginRight="50dp"
             android:layout_weight="1"
-            android:background="#5E21E6"
+            android:background="@color/white"
             android:text="Insurance"
             android:textStyle="italic"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
     </LinearLayout>
 
@@ -95,10 +95,10 @@ android:orientation="vertical">
             android:layout_marginTop="20dp"
             android:layout_marginRight="50dp"
             android:layout_weight="1"
-            android:background="#5E21E6"
+            android:background="@color/white"
             android:text="Challan"
             android:textStyle="italic"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/RTOID"
@@ -108,8 +108,8 @@ android:orientation="vertical">
             android:layout_marginTop="20dp"
             android:layout_marginRight="50dp"
             android:layout_weight="1"
-            android:background="#5E21E6"
-            android:textColor="@color/white"
+            android:background="@color/white"
+            android:textColor="@color/black"
             android:textStyle="italic"
             android:text="RTO" />
     </LinearLayout>

@@ -3,38 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.16" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/drawable/ic_launcher_background.xml" value="0.16" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_forgot_password.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_register_user.xml" value="0.20416666666666666" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_shop_details.xml" value="0.20416666666666666" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_shop_map.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_station_details.xml" value="0.19010416666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_station_map.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_station_nav.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/app_bar_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/content_home.xml" value="0.1" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/fragment_profile.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/fragment_shop.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/fragment_station.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/fragment_station_detail.xml" value="0.20416666666666666" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/nav_header_home.xml" value="0.20416666666666666" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/rto.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/shop_list_item.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/station_list_item.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/menu/activity_main_drawer.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/menu/home.xml" value="0.20416666666666666" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.16" />
-        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.16" />
-        <entry key="..\:/Sem2_IIITD/MC/Project/Fresh/EV-Connect/app/src/main/res/layout/activity_forgot_password.xml" value="0.23645833333333333" />
-        <entry key="..\:/Sem2_IIITD/MC/Project/Fresh/EV-Connect/app/src/main/res/layout/activity_home.xml" value="0.23645833333333333" />
-        <entry key="..\:/Sem2_IIITD/MC/Project/Fresh/EV-Connect/app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
-        <entry key="..\:/Sem2_IIITD/MC/Project/Fresh/EV-Connect/app/src/main/res/layout/activity_profile.xml" value="0.23645833333333333" />
-        <entry key="..\:/Sem2_IIITD/MC/Project/Fresh/EV-Connect/app/src/main/res/layout/activity_register_user.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/MC_project/Auth_app/app/src/main/res/layout/activity_forgot_password.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/MC_project/Auth_app/app/src/main/res/layout/activity_main.xml" value="0.23645833333333333" />
         <entry key="..\:/Users/asus/AndroidStudioProjects/MC_project/Auth_app/app/src/main/res/layout/activity_profile.xml" value="0.23645833333333333" />
@@ -62,10 +47,16 @@
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.1099290780141844" />
         <entry key="app/src/main/res/layout/fragment_profile_form.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_rto_form.xml" value="0.22604166666666667" />
+        <entry key="app/src/main/res/layout/fragment_shop.xml" value="0.14130434782608695" />
+        <entry key="app/src/main/res/layout/fragment_shop_detail.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/fragment_station.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/fragment_station_detail.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/layout/insurance.xml" value="0.22604166666666667" />
         <entry key="app/src/main/res/layout/nav_header_home.xml" value="0.13177083333333334" />
         <entry key="app/src/main/res/layout/profile.xml" value="0.1099290780141844" />
         <entry key="app/src/main/res/layout/rto.xml" value="0.22708333333333333" />
+        <entry key="app/src/main/res/layout/shop_list_item.xml" value="0.24166666666666667" />
+        <entry key="app/src/main/res/layout/station_list_item.xml" value="0.24166666666666667" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.12604166666666666" />
         <entry key="app/src/main/res/menu/home.xml" value="0.12604166666666666" />
       </map>

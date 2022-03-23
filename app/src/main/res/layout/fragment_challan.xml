@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.Challan"
-    android:background="@drawable/bg_try10"
+    android:background="@drawable/bg_try17"
     android:orientation="vertical">
 
     <TextView
@@ -14,6 +14,7 @@
         android:layout_marginLeft="100dp"
         android:layout_marginTop="50dp"
         android:text="Challan"
+        android:textAlignment="center"
         android:fontFamily="casual"
         android:textColor="@color/white"
         android:textSize="50dp"
@@ -22,10 +23,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="150dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginRight="70dp"
         android:layout_marginTop="70dp"
-        android:text=" No Challan Found"
+        android:text= " 1. Overspeeding Challan on NH-24 on 20/01/2022, Amount=2000 \n \n2. Overspeeding Challan on NH-24 on 10/08/2021, Amount=1500"
         android:textAlignment="center"
+        android:layout_gravity="center"
         android:textColor="@color/white"
         android:textStyle="italic" />
 
@@ -35,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginTop="380dp"
-        android:layout_marginRight="160dp"
+        android:layout_marginRight="50dp"
         android:layout_marginBottom="20dp"
         android:background="@color/design_default_color_primary"
         android:text="Back"
