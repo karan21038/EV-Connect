@@ -18,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -105,7 +106,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 }
                 else{
-                    Toast.makeText(MainActivity.this,"Failed to Login",Toast.LENGTH_LONG).show();
+                    FirebaseAuthException e = (FirebaseAuthException )task.getException();
+                    Toast.makeText(MainActivity.this,"Failed to Login"+e.getMessage(),Toast.LENGTH_LONG).show();
                     pBar.setVisibility(View.GONE);
                 }
             }
