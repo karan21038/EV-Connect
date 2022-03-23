@@ -34,15 +34,17 @@
         android:layout_marginBottom="30dp"
         android:fontFamily="casual"
         android:textColor="@color/white"
+        android:textSize="25dp"
         android:gravity="center"/>
 
         <TextView
             android:id="@+id/policyholderID"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="PolicyHolderName"
-            android:layout_marginLeft="50dp"
+            android:hint="PolicyHolde"
+            android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
+            android:textSize="25dp"
             android:fontFamily="casual"
             android:textColor="@color/white"
             android:gravity="center"/>
@@ -62,6 +64,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
+            android:textSize="25dp"
             android:layout_marginBottom="30dp"
             android:fontFamily="casual"
             android:text="Amount:"
@@ -70,10 +73,11 @@
 
         <TextView
             android:id="@+id/InsuranceAmountID"
-            android:layout_width="226dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="78dp"
-            android:layout_marginRight="80dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="30dp"
+            android:textSize="25dp"
             android:fontFamily="casual"
             android:gravity="center"
             android:hint="Fetch Amount"
@@ -93,6 +97,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
+            android:textSize="25dp"
             android:layout_marginBottom="30dp"
             android:textStyle="bold"
             android:text="Premium Date:"
@@ -104,7 +109,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="Premium Date (MM/DD/YYYY)"
+            android:hint="MM/DD/YYYY"
+            android:textSize="15dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="30dp"
             android:fontFamily="casual"
@@ -125,6 +131,7 @@
             android:layout_marginLeft="50dp"
             android:layout_marginBottom="30dp"
             android:textStyle="bold"
+            android:textSize="25dp"
             android:text="Renewal Date:"
             android:fontFamily="casual"
             android:textColor="@color/white"/>
@@ -133,9 +140,10 @@
             android:id="@+id/RenewalID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
+            android:layout_marginLeft="50dp"
             android:layout_marginRight="30dp"
-            android:hint="Renewal Date (MM/DD/YYYY)"
+            android:hint="MM/DD/YYYY"
+            android:textSize="15dp"
             android:fontFamily="casual"
             android:textColor="@color/white"/>
     </LinearLayout>
@@ -154,8 +162,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="200dp"
-        android:paddingRight="20dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/white"
         android:background="@color/design_default_color_primary"
         android:text="Back">
