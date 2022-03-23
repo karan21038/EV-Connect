@@ -110,10 +110,11 @@
             android:text="MFG DT.:"
             android:fontFamily="casual"
             android:textColor="@color/white"/>
-        <TextView
+
+                <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="MFG DT."
+            android:hint="MFG DT. (MM/DD/YYYY)"
             android:id="@+id/mfg_date"
             android:layout_marginLeft="70dp"
             android:fontFamily="casual"
@@ -136,11 +137,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="REGD UPTO."
+            android:hint="REGD UPTO. (MM/DD/YYYY)"
             android:id="@+id/reg_upto"
             android:layout_marginLeft="40dp"
             android:fontFamily="casual"
             android:textColor="@color/white"/>
+
 
     </LinearLayout>
     <Button
@@ -149,13 +151,14 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginTop="200dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginRight="160dp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/white"
         android:background="@color/design_default_color_primary"
         android:text="Back">
 
     </Button>
+
 
 </LinearLayout>
 

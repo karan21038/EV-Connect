@@ -80,7 +80,10 @@ public class ProfileFragment extends Fragment {
                 ProfileData userProfile = mainSnapshot.getValue(ProfileData.class);
                 if(userProfile!=null) {
                     String wallet1 = userProfile.wallet_amount;
-                    wallet_amount.setText("Balance: " + wallet1);
+                    String upto=userProfile.regtUpto;
+                    if(wallet1!=null) {
+                        wallet_amount.setText("Balance: " + wallet1);
+                    }
 
                 }
             }
@@ -132,8 +135,6 @@ public class ProfileFragment extends Fragment {
                 challan.setVisibility(View.GONE);
                 profile_name.setVisibility(View.GONE);
                 wallet_amount.setVisibility(View.GONE);
-
-
 
                 FragmentTransaction fragmentTransaction = getActivity()
                         .getSupportFragmentManager().beginTransaction();

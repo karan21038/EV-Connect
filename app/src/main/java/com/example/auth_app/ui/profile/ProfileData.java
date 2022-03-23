@@ -66,22 +66,6 @@ public class ProfileData {
         mfgDate = mfgDatesss;
     }
 
-//    public String getmodel() {
-//        return model;
-//    }
-//
-//    public void setmodel(String model) {
-//        model = this.model;
-//    }
-
-    public String getregtUpto() {
-        return regtUpto;
-    }
-
-    public void setregtUpto(String regtUpto) {
-        regtUpto = this.regtUpto;
-    }
-
     public String getU_FastTagBalance() {
         return u_FastTagBalance;
     }
@@ -174,6 +158,13 @@ public class ProfileData {
 
     }
 
+    public String getregtUpto() {
+        return regtUpto;
+    }
+
+    public void setregtUpto(String regtUpto) {
+        this.regtUpto = regtUpto;
+    }
     public ProfileData(String mfgDate, String model, String regtUpto, String ev_number, String ev_type, String u_city, String u_FastTagBalance, String u_InsuranceAmount, String u_OwnerName, String u_PolicyHolder, String u_PremiumDate, String u_RegistrationNo, String u_RenewalDate, String u_age, String u_email, String u_name, String wallet_amount) {
         this.mfgDate = mfgDate;
         this.model = model;
@@ -193,4 +184,5 @@ public class ProfileData {
         this.u_name = u_name;
         this.wallet_amount = wallet_amount;
     }
+
 }

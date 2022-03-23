@@ -136,11 +136,11 @@ public class ProfileFormFragment extends Fragment {
         data.setU_RegistrationNo(regnos);
         data.setregtUpto(reguptos);
         data.setmodel(models);
-        data.setregtUpto(reguptos);
         data.setU_OwnerName(owners);
         data.setMfgDate(mfgdates);
         data.setEv_number(kev_number);
         data.setU_name(kusername);
+        data.setU_email(kemail);
 
 
         databaseReference.addValueEventListener(new ValueEventListener() {

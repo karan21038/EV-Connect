@@ -70,7 +70,9 @@ public class FastTag extends Fragment {
            public void onDataChange(DataSnapshot mainSnapshot) {
                ProfileData userProfile = mainSnapshot.getValue(ProfileData.class);
                String fast=userProfile.u_FastTagBalance;
-               fastamount.setText(fast);
+               if(fast!=null) {
+                   fastamount.setText(fast);
+               }
            }
            @Override
            public void onCancelled(DatabaseError databaseError) {
