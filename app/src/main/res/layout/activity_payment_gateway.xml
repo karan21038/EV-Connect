@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/bg_try17"
+    android:id="@+id/repid"
+    tools:context=".PaymentGateway">
+
+    <Button
+        android:id="@+id/paybutton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/wallet_holo_blue_light"
+        android:layout_marginLeft="150dp"
+        android:layout_marginTop="280dp"
+        android:gravity="center"
+        android:text="Continue to \n the Payment Gateway"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="311dp" />
+
+
+    <Button
+        android:id="@+id/gobackchallan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="400dp"
+        android:layout_marginBottom="90dp"
+        android:gravity="center"
+        android:background="@color/wallet_holo_blue_light"
+        android:text="Back"
+        tools:layout_editor_absoluteX="120dp"
+        tools:layout_editor_absoluteY="311dp" />
+
+    <TextView
+        android:id="@+id/paymsg"
+        android:textColor="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="500dp"></TextView>
+
+
+</FrameLayout>
