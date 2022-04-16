@@ -29,4 +29,10 @@
         android:label="@string/menu_form"
         tools:layout="@layout/fragment_profile_form"/>
 
+    <activity
+        android:id="@+id/nav_trip_planner"
+        android:name="com.example.auth_app.ui.tripPlanner.TripPlannerMapsActivity"
+        android:label="@string/menu_trip"
+        tools:layout="@layout/fragment_trip"/>
+
 </navigation>

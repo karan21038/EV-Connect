@@ -146,7 +146,6 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
 
         //Log.i("","Current Location: "+latitude_current_loc + ", "+ longitude_current_loc);
 
-
 //        for(int i = 1; i <= 5; i++) {
 //            StationListItem stationlistItem = new StationListItem(i,"PlugNgo Charging Station "+i,28.621734973925065,77.29355392625062,20.10,"9:00 am","18:00 pm",4,"PlugNgo Charging Station, Mother Dairy Marg, I.P.Extension, Mandawali, New Delhi, Delhi, India");
 //            stationListItems.add(stationlistItem);
