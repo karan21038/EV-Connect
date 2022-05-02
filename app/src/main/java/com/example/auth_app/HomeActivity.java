@@ -97,7 +97,7 @@ public class HomeActivity extends AppCompatActivity {
         });
 
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_profile, R.id.nav_stations, R.id.nav_shops, R.id.nav_profileForm, R.id.nav_trip_planner)
+                R.id.nav_home, R.id.nav_profile, R.id.nav_stations, R.id.nav_shops, R.id.nav_profileForm, R.id.nav_trip_planner)
                 .setOpenableLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_home);
