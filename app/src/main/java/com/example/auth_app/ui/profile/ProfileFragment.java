@@ -1,36 +1,25 @@
 package com.example.auth_app.ui.profile;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.auth_app.R;
-import com.example.auth_app.User;
 import com.example.auth_app.databinding.FragmentProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 public class ProfileFragment extends Fragment {
 
@@ -42,7 +31,7 @@ public class ProfileFragment extends Fragment {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     FirebaseFirestore firestore;
-   private FragmentProfileBinding binding;
+    private FragmentProfileBinding binding;
 
     View view;
     Button rto,insurance,fastag,challan;
@@ -87,28 +76,28 @@ public class ProfileFragment extends Fragment {
 
                 }
             }
-        @Override
-        public void onCancelled(DatabaseError databaseError) {
-        }
-    });
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
 
 
         rto.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            rto.setVisibility(View.GONE);
-            insurance.setVisibility(View.GONE);
-            fastag.setVisibility(View.GONE);
-            challan.setVisibility(View.GONE);
-            profile_name.setVisibility(View.GONE);
-            wallet_amount.setVisibility(View.GONE);
+            @Override
+            public void onClick(View v) {
+                rto.setVisibility(View.GONE);
+                insurance.setVisibility(View.GONE);
+                fastag.setVisibility(View.GONE);
+                challan.setVisibility(View.GONE);
+                profile_name.setVisibility(View.GONE);
+                wallet_amount.setVisibility(View.GONE);
 
-            FragmentTransaction fragmentTransaction = getActivity()
-                    .getSupportFragmentManager().beginTransaction();
-            fragmentTransaction.replace(R.id.container, new RTO()).addToBackStack(null);
-            fragmentTransaction.commit();
-        }
-    });
+                FragmentTransaction fragmentTransaction = getActivity()
+                        .getSupportFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.container, new RTO()).addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
 
         insurance.setOnClickListener(new View.OnClickListener() {
             @Override

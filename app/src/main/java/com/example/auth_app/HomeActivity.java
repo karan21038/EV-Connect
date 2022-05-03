@@ -3,22 +3,20 @@ package com.example.auth_app;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Menu;
+import android.view.View;
 import android.widget.TextView;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.navigation.NavigationView;
-
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.auth_app.databinding.ActivityHomeBinding;
+import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -96,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
                 }
         });
 
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
+        mAppBarConfiguration = new AppBarConfiguration.Builder( R.id.nav_home,
                 R.id.nav_home, R.id.nav_profile, R.id.nav_stations, R.id.nav_shops, R.id.nav_profileForm, R.id.nav_trip_planner)
                 .setOpenableLayout(drawer)
                 .build();
