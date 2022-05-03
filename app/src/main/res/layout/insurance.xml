@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/bg_try17"
+    android:background="@drawable/img"
     tools:context=".ui.profile.Insurance">
 
     <TextView
@@ -15,7 +15,7 @@
         android:textSize="50dp"
         android:layout_marginBottom="50dp"
         android:fontFamily="casual"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:layout_marginTop="70dp"
         android:gravity="center"/>
     <LinearLayout
@@ -33,7 +33,7 @@
         android:textStyle="bold"
         android:layout_marginBottom="30dp"
         android:fontFamily="casual"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="25dp"
         android:gravity="center"/>
 
@@ -46,7 +46,7 @@
             android:layout_marginRight="30dp"
             android:textSize="25dp"
             android:fontFamily="casual"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:gravity="center"/>
 
     </LinearLayout>
@@ -68,7 +68,7 @@
             android:layout_marginBottom="30dp"
             android:fontFamily="casual"
             android:text="Amount:"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textStyle="bold" />
 
         <TextView
@@ -81,7 +81,7 @@
             android:fontFamily="casual"
             android:gravity="center"
             android:hint="Fetch Amount"
-            android:textColor="@color/white" />
+            android:textColor="@color/black" />
 
     </LinearLayout>
 
@@ -102,7 +102,7 @@
             android:textStyle="bold"
             android:text="Premium Date:"
             android:fontFamily="casual"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/premiumID"
@@ -114,7 +114,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginRight="30dp"
             android:fontFamily="casual"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </LinearLayout>
 
     <LinearLayout
@@ -134,7 +134,7 @@
             android:textSize="25dp"
             android:text="Renewal Date:"
             android:fontFamily="casual"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/RenewalID"
@@ -145,7 +145,7 @@
             android:hint="MM/DD/YYYY"
             android:textSize="15dp"
             android:fontFamily="casual"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </LinearLayout>
     <TextView
         android:layout_width="wrap_content"
@@ -155,7 +155,7 @@
         android:id="@+id/remainingID"
         android:fontFamily="casual"
         android:layout_marginTop="20dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/black"/>
 
     <Button
         android:id="@+id/insuranceback"

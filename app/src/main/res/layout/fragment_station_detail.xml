@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
-    tools:context=".ui.stations.StationDetailFragment">
+    tools:context=".ui.stations.StationDetailFragment"
+    android:background="@drawable/img">
 
     <TextView
         android:layout_width="match_parent"

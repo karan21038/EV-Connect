@@ -12,7 +12,7 @@ android:orientation="vertical">
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/container"
-    android:background="@drawable/bg_try17"
+    android:background="@drawable/img"
     tools:context=".ui.profile.ProfileFragment">
 
     <TextView
@@ -26,7 +26,7 @@ android:orientation="vertical">
         android:fontFamily="casual"
         android:gravity="center"
         android:text="Profile"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="50dp"
         android:textStyle="bold" />
 
@@ -42,7 +42,7 @@ android:orientation="vertical">
         android:layout_marginTop="200dp"
         android:layout_marginLeft="50dp"
         android:layout_marginRight="50dp"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:text="Rs. 100"
         android:height="80dp"/>
 

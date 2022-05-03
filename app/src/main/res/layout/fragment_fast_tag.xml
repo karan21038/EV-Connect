@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.FastTag"
-    android:background="@drawable/bg_try17"
+    android:background="@drawable/img"
     android:orientation="vertical">
 
 
@@ -14,7 +14,7 @@
         android:text="FastTag"
         android:layout_marginTop="70dp"
         android:fontFamily="casual"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="50dp"
         android:gravity="center"/>
@@ -35,7 +35,7 @@
         android:gravity="center"
         android:text="Balance"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="40dp"
         android:textStyle="bold" />
 
@@ -48,7 +48,7 @@
         android:hint="Fetch Amount"
         android:text="3600"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="40dp" />
     </LinearLayout>
 
