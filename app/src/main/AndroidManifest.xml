@@ -14,6 +14,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Auth_app">
         <activity
+            android:name=".ui.tripPlanner.TripActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.tripPlanner.TripPlannerMapsActivity"
+            android:exported="false" />
+        <activity
             android:name=".PaymentGateway"
             android:exported="false" />
 
@@ -36,7 +42,6 @@
         <activity
             android:name=".ui.shops.ShopDetailsActivity"
             android:exported="false" />
-
         <activity
             android:name=".ForgotPassword"
             android:exported="false" />
@@ -54,17 +59,16 @@
         <activity
             android:name=".MainActivity"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_4whvULAbwvTaYM">
-        </meta-data>
+            android:value="rzp_test_4whvULAbwvTaYM"></meta-data>
 
         <activity
             android:name="com.razorpay.CheckoutActivity"
@@ -73,6 +77,7 @@
             android:theme="@style/CheckoutTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <data
                     android:host="rzp.io"
                     android:scheme="io.rzp" />
@@ -86,8 +91,6 @@
                 <action android:name="rzp.device_token.share" />
             </intent-filter>
         </receiver>
-
-
     </application>
 
 </manifest>

@@ -60,8 +60,10 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
     private static final String TAG = "MapsActivity";
     private GoogleMap mMap;
     private Geocoder geocoder;
-    double latitude;
-    double longitude;
+    double latitude_source;
+    double longitude_source;
+    double latitude_destination;
+    double longitude_destination;
     public ArrayList<StationListItem> stationListItems;
     public static String name;
     public static double price ;
@@ -72,6 +74,17 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
     public static String closeTime ;
     public static double rating;
 
+    public double lat_mid_point1;
+    public double lon_mid_point1;
+    public double lat_mid_point2;
+    public double lon_mid_point2;
+    public double lat_mid_point3;
+    public double lon_mid_point3;
+
+    public double lat_radius;
+    public double lon_radius;
+    public double radius;
+
     public List<Marker> markerList;
 
     public int current_time_hour;
@@ -81,7 +94,8 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
     public int image_station;
     public int k=0;
 
-    public float[] results = new float[2];
+
+    public float[] radius_results = new float[2];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,62 +110,31 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
         markerList = new ArrayList<Marker>();
     }
 
-    @Override
-    public void onMapReady(GoogleMap googleMap) {
-        mMap = googleMap;
+    //Reference - https://stackoverflow.com/questions/4656802/midpoint-between-two-latitude-and-longitude
+    public double[] find_mid_point(double lat1,double lon1,double lat2,double lon2){
 
-        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+        double dLon = Math.toRadians(lon2 - lon1);
 
-//
-//        mMap.setOnMapLongClickListener(this);
-        mMap.setOnMarkerDragListener(this);
+        double[] res = new double[2];
 
-        LocationManager locationManager = (LocationManager)
-                getSystemService(this.LOCATION_SERVICE);
-        Criteria criteria = new Criteria();
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return;
-        }
-        Location location = locationManager.getLastKnownLocation(locationManager
-                .getBestProvider(criteria, false));
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
+        lat1 = Math.toRadians(lat1);
+        lat2 = Math.toRadians(lat2);
+        lon1 = Math.toRadians(lon1);
 
-        Date currentTime = Calendar.getInstance().getTime();
-        String[] str_arr = String.valueOf(currentTime).split(" ");
-        char a = str_arr[3].charAt(0);
-        char b = str_arr[3].charAt(1);
-        String str1 = String.valueOf(a);
-        String str2 = String.valueOf(b);
-        String current_time_hour_str = str1+str2;
-        current_time_hour = Integer.parseInt(current_time_hour_str);
-        Log.i("","Current Time"+current_time_hour);
+        double Bx = Math.cos(lat2) * Math.cos(dLon);
+        double By = Math.cos(lat2) * Math.sin(dLon);
+        double lat3 = Math.atan2(Math.sin(lat1) + Math.sin(lat2), Math.sqrt((Math.cos(lat1) + Bx) * (Math.cos(lat1) + Bx) + By * By));
+        double lon3 = lon1 + Math.atan2(By, Math.cos(lat1) + Bx);
+        res[0] = Math.toDegrees(lat3);
+        res[1] = Math.toDegrees(lon3);
+        //System.out.println(Math.toDegrees(lat3) + " " + Math.toDegrees(lon3));
+        return res;
+    }
 
-
-        try {
-            List<Address> addresses = geocoder.getFromLocation(latitude,longitude,1);
-            if (addresses.size() > 0) {
-                Address address = addresses.get(0);
-                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-                MarkerOptions markerOptions = new MarkerOptions()
-                        .position(latLng)
-                        .title(address.getAddressLine(0)).draggable(true);
-                mMap.addMarker(markerOptions);
-                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public void mark_stations(double radius, double latitude_source, double longitude_source){
 
         int[] images_station = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r,R.drawable.s};
-
+        float[] results = new float[2];
         for(int i=1;i<=20;i++) {
 
             int finalI = i;
@@ -175,8 +158,8 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
                         //url = (String) map.get("img-url");
 //               Log.i("TAG", "MAPPPPPP>>>>>: "+map);
                         Log.i("TAG", "KRKRKRKRK>>>>>: " + rating);
-                        android.location.Location.distanceBetween(latitude,longitude,lati,longi,results);
-                        Log.i("", "Current Location : " + latitude + ", " + longitude + ", "+ results[0]);
+                        android.location.Location.distanceBetween(latitude_source,longitude_source,lati,longi,results);
+                        Log.i("", "Current Location : " + latitude_source + ", " + longitude_source + ", "+ results[0]);
                         Log.i("","Station Time : "+strtTime+", "+closeTime);
 
                         char a = strtTime.charAt(0);
@@ -223,11 +206,11 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
                         else{
                             image_station = images_station[temp_rk];
                         }
-                        if(results[0]<=10000.0) {
+                        if(results[0]<=radius) {
                             distance_from_curr_location = results[0]/1000;
                             String temp = String.format("%.2f",distance_from_curr_location);
                             distance_from_curr_location = Double.parseDouble(temp);
-
+                            Log.i("","Radius value: "+results[0]);
                             //Log.i("","K value: "+finalK);
                             stationListItems.add(new StationListItem(finalI, name, lati, longi, price, strtTime, closeTime, rating, address_station, distance_from_curr_location, status,image_station));
 
@@ -263,6 +246,257 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
 
 
     @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+
+//
+//        mMap.setOnMapLongClickListener(this);
+        mMap.setOnMarkerDragListener(this);
+
+        LocationManager locationManager = (LocationManager)
+                getSystemService(this.LOCATION_SERVICE);
+        Criteria criteria = new Criteria();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        Location location = locationManager.getLastKnownLocation(locationManager
+                .getBestProvider(criteria, false));
+        latitude_source = TripActivity.latLng_source.latitude;
+        longitude_source = TripActivity.latLng_source.longitude;
+
+        latitude_destination = TripActivity.latLng_dest.latitude;
+        longitude_destination = TripActivity.latLng_dest.longitude;
+
+        double[] res1 = find_mid_point(latitude_source,longitude_source,latitude_destination,longitude_destination);
+        lat_mid_point1 = res1[0];
+        lon_mid_point1 = res1[1];
+
+        Log.i("Mid Point 1",""+lat_mid_point1+" "+lon_mid_point1);
+
+        double[] res2 = find_mid_point(latitude_source,longitude_source,lat_mid_point1,lon_mid_point1);
+        lat_mid_point2 = res2[0];
+        lon_mid_point2 = res2[1];
+
+        double[] res3 = find_mid_point(lat_mid_point1,lon_mid_point1,latitude_destination,longitude_destination);
+        lat_mid_point3 = res3[0];
+        lon_mid_point3 = res3[1];
+
+
+        android.location.Location.distanceBetween(latitude_source,longitude_source,latitude_destination,longitude_destination,radius_results);
+
+        radius = radius_results[0]/8;
+        Log.i("Radius",""+radius);
+        Date currentTime = Calendar.getInstance().getTime();
+        String[] str_arr = String.valueOf(currentTime).split(" ");
+        char a = str_arr[3].charAt(0);
+        char b = str_arr[3].charAt(1);
+        String str1 = String.valueOf(a);
+        String str2 = String.valueOf(b);
+        String current_time_hour_str = str1+str2;
+        current_time_hour = Integer.parseInt(current_time_hour_str);
+        Log.i("","Current Time"+current_time_hour);
+
+
+        try {
+            List<Address> addresses = geocoder.getFromLocation(lat_mid_point1,lon_mid_point1,1);
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(latLng)
+                        .title(address.getAddressLine(0)).draggable(true);
+                mMap.addMarker(markerOptions);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            List<Address> addresses = geocoder.getFromLocation(lat_mid_point2,lon_mid_point2,1);
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(latLng)
+                        .title(address.getAddressLine(0)).draggable(true);
+                mMap.addMarker(markerOptions);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            List<Address> addresses = geocoder.getFromLocation(lat_mid_point3,lon_mid_point3,1);
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(latLng)
+                        .title(address.getAddressLine(0)).draggable(true);
+                mMap.addMarker(markerOptions);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            List<Address> addresses = geocoder.getFromLocation(latitude_source,longitude_source,1);
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(latLng)
+                        .title(address.getAddressLine(0)).draggable(true);
+                mMap.addMarker(markerOptions);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            List<Address> addresses = geocoder.getFromLocation(latitude_destination,longitude_destination,1);
+            if (addresses.size() > 0) {
+                Address address = addresses.get(0);
+                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+                MarkerOptions markerOptions = new MarkerOptions()
+                        .position(latLng)
+                        .title(address.getAddressLine(0)).draggable(true);
+                mMap.addMarker(markerOptions);
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mark_stations(radius,lat_mid_point1,lon_mid_point1);
+        mark_stations(radius,lat_mid_point2,lon_mid_point2);
+        mark_stations(radius,lat_mid_point3,lon_mid_point3);
+//        int[] images_station = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r,R.drawable.s};
+//
+//        for(int i=1;i<=20;i++) {
+//
+//            int finalI = i;
+//            FirebaseDatabase.getInstance().getReference().child("Stations").child(String.valueOf(i)).addValueEventListener(new ValueEventListener() {
+//                private static final String TAG = "StationFragment";
+//
+//                @Override
+//                public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                    if (snapshot.exists()) {
+////
+//                        Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+//                        Log.i("TAG", "map>>>>>: " + map);
+//                        name = (String) map.get("Name");
+//                        price = (double) map.get("Price");
+//                        lati = (double) map.get("Latitude");
+//                        longi = (double) map.get("Longitude");
+//                        address_station = (String) map.get("Address");
+//                        strtTime = (String) map.get("Starting Time");
+//                        closeTime = (String) map.get("Closing Time");
+//                        rating = (double) map.get("Rating");
+//                        //url = (String) map.get("img-url");
+////               Log.i("TAG", "MAPPPPPP>>>>>: "+map);
+//                        Log.i("TAG", "KRKRKRKRK>>>>>: " + rating);
+//                        android.location.Location.distanceBetween(latitude_source,longitude_source,lati,longi,results);
+//                        Log.i("", "Current Location : " + latitude_source + ", " + longitude_source + ", "+ results[0]);
+//                        Log.i("","Station Time : "+strtTime+", "+closeTime);
+//
+//                        char a = strtTime.charAt(0);
+//                        char b = strtTime.charAt(1);
+//                        String str1 = String.valueOf(a);
+//                        String str2 = String.valueOf(b);
+//
+//                        String strt_time_hour_str = "";
+//
+//                        if(!str2.equals(":"))
+//                            strt_time_hour_str = str1+str2;
+//                        else if(str2.equals(":"))
+//                            strt_time_hour_str = str1;
+//
+//                        int strt_time_hour = Integer.parseInt(strt_time_hour_str);
+//
+//                        String close_time_hour_str = "";
+//
+//                        char a1 = closeTime.charAt(0);
+//                        char b1 = closeTime.charAt(1);
+//                        String str3 = String.valueOf(a1);
+//                        String str4 = String.valueOf(b1);
+//
+//                        Random rd = new Random();
+//                        int temp_rk = rd.nextInt(17);
+//
+//                        if(!str4.equals(":"))
+//                            close_time_hour_str = str3+str4;
+//                        else if(str4.equals(":"))
+//                            close_time_hour_str = str3;
+//
+//                        int close_time_hour = Integer.parseInt(close_time_hour_str);
+//
+//                        if(current_time_hour>=strt_time_hour && current_time_hour<=close_time_hour)
+//                            status = "Opened Now";
+//                        else
+//                            status = "Closed Now";
+//
+//                        Log.i("","Station Time Hour"+strt_time_hour+close_time_hour);
+//                        if(k<17) {
+//                            image_station = images_station[k++];
+//                            Log.i("", "K value: " + k);
+//                        }
+//                        else{
+//                            image_station = images_station[temp_rk];
+//                        }
+//                        if(results[0]<=10000.0) {
+//                            distance_from_curr_location = results[0]/1000;
+//                            String temp = String.format("%.2f",distance_from_curr_location);
+//                            distance_from_curr_location = Double.parseDouble(temp);
+//
+//                            //Log.i("","K value: "+finalK);
+//                            stationListItems.add(new StationListItem(finalI, name, lati, longi, price, strtTime, closeTime, rating, address_station, distance_from_curr_location, status,image_station));
+//
+//                            try {
+//                                List<Address> addresses = geocoder.getFromLocation(lati,longi,1);
+//                                if (addresses.size() > 0) {
+//                                    Marker marker;
+//                                    Address address = addresses.get(0);
+//                                    LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
+//                                    MarkerOptions markerOptions = new MarkerOptions()
+//                                            .position(latLng)
+//                                            .title(name).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE));
+//                                    marker = mMap.addMarker(markerOptions);
+//                                    markerList.add(marker);
+//                                }
+//                            }
+//                            catch (IOException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//                    }
+//
+//                }
+//
+//                @Override
+//                public void onCancelled(@NonNull DatabaseError error) {
+//
+//                }
+//            });
+//
+//        }
+    }
+
+
+    @Override
     public void onMarkerDragStart(Marker marker) {
         Log.d(TAG, "onMarkerDragStart: ");
     }
@@ -282,8 +516,8 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
 
         Log.d(TAG, "onMarkerDragEnd: ");
         LatLng latLng = marker.getPosition();
-        latitude = latLng.latitude;
-        longitude = latLng.longitude;
+        latitude_source = latLng.latitude;
+        longitude_source = latLng.longitude;
 
         Date currentTime = Calendar.getInstance().getTime();
         String[] str_arr = String.valueOf(currentTime).split(" ");
@@ -310,7 +544,7 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
         }
 
         int[] images_station = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r,R.drawable.s};
-
+        float[] results = new float[2];
         for(int i=1;i<=20;i++) {
 
             int finalI = i;
@@ -334,8 +568,8 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
                         //url = (String) map.get("img-url");
 //               Log.i("TAG", "MAPPPPPP>>>>>: "+map);
                         Log.i("TAG", "KRKRKRKRK>>>>>: " + rating);
-                        android.location.Location.distanceBetween(latitude,longitude,lati,longi,results);
-                        Log.i("", "Current Location : " + latitude + ", " + longitude + ", "+ results[0]);
+                        android.location.Location.distanceBetween(latitude_source,longitude_source,lati,longi,results);
+                        Log.i("", "Current Location : " + latitude_source + ", " + latitude_source + ", "+ results[0]);
                         Log.i("","Station Time : "+strtTime+", "+closeTime);
 
                         char a = strtTime.charAt(0);

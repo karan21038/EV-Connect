@@ -36,7 +36,7 @@
 
     <activity
         android:id="@+id/nav_trip_planner"
-        android:name="com.example.auth_app.ui.tripPlanner.TripPlannerMapsActivity"
+        android:name="com.example.auth_app.ui.tripPlanner.TripActivity"
         android:label="@string/menu_trip"
         tools:layout="@layout/fragment_trip"/>
 
