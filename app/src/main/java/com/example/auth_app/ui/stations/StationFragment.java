@@ -217,7 +217,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                                 closeTime = (String) map.get("Closing Time");
                                 rating = (double) map.get("Rating");
                                 //url = (String) map.get("img-url");
-//               Log.i("TAG", "MAPPPPPP>>>>>: "+map);
+                                //Log.i("TAG", "MAPPPPPP>>>>>: "+map);
                                 Log.i("TAG", "KRKRKRKRK>>>>>: " + rating);
                                 android.location.Location.distanceBetween(latitude_current_loc,longitude_current_loc,lati,longi,results);
                                 Log.i("", "Current Location : " + latitude_current_loc + ", " + longitude_current_loc + ", "+ results[0]);

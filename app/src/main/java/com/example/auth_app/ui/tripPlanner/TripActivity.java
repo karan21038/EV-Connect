@@ -28,8 +28,8 @@ import java.util.List;
 
 public class TripActivity extends AppCompatActivity {
 
-    public EditText source;
-    public EditText destination;
+    public static EditText source;
+    public static EditText destination;
     public Button search;
     public static LatLng latLng_dest;
     public static LatLng latLng_source;
