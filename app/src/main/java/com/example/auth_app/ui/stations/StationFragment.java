@@ -50,7 +50,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
 
     private static final long MIN_TIME_BW_UPDATES = 10;
     private static final float MIN_DISTANCE_CHANGE_FOR_UPDATES = 1000*60*1;
-   // private static final Object LOCATION_SERVICE = null;
+    // private static final Object LOCATION_SERVICE = null;
     private FragmentStationBinding binding;
     private RecyclerView recyclerView;
     private RecyclerView.Adapter adapter;
@@ -76,8 +76,9 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
     public String status;
     public double distance_from_curr_location;
     public int image_station;
+    public static long waitCount = 0;
     public int k=0;
-   // public static String url;
+    // public static String url;
 //    @Override
 //    public void onStart() {
 //        super.onStart();
@@ -194,7 +195,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                 }
                 Log.i("", "Current Location : " + latitude_current_loc + ", " + longitude_current_loc);
                 int[] images_station = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r,R.drawable.s};
-               // int k=0;
+                // int k=0;
                 //Database work
                 for(int i=1;i<=20;i++) {
 
@@ -216,9 +217,10 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                                 strtTime = (String) map.get("Starting Time");
                                 closeTime = (String) map.get("Closing Time");
                                 rating = (double) map.get("Rating");
+                                waitCount = (long) map.get("Wait Count");
                                 //url = (String) map.get("img-url");
-                                //Log.i("TAG", "MAPPPPPP>>>>>: "+map);
-                                Log.i("TAG", "KRKRKRKRK>>>>>: " + rating);
+//               Log.i("TAG", "MAPPPPPP>>>>>: "+map);
+//                                Log.i("TAG", "KRKRKRKRK>>>>>: " + rating);
                                 android.location.Location.distanceBetween(latitude_current_loc,longitude_current_loc,lati,longi,results);
                                 Log.i("", "Current Location : " + latitude_current_loc + ", " + longitude_current_loc + ", "+ results[0]);
                                 Log.i("","Station Time : "+strtTime+", "+closeTime);
@@ -273,7 +275,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                                     distance_from_curr_location = Double.parseDouble(temp);
 
                                     //Log.i("","K value: "+finalK);
-                                    stationListItems.add(new StationListItem(finalI, name, lati, longi, price, strtTime, closeTime, rating, address, distance_from_curr_location, status,image_station));
+                                    stationListItems.add(new StationListItem(finalI, name, lati, longi, price, strtTime, closeTime, rating, address, distance_from_curr_location, status,image_station, waitCount));
                                 }
                             }
                             adapter = new StationAdapter(stationListItems, StationFragment.this, StationFragment.this);
@@ -295,7 +297,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
             }
         });
     }
-//    public void getmylocation() {
+    //    public void getmylocation() {
 //
 //    }
     @Override
@@ -317,7 +319,8 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
         String status = modelObject.getStatus();
         String opening_time = modelObject.getStrt_time();
         String closing_time = modelObject.getStop_time();
-        String res = station_num+"$"+station_name+"$"+address+"$"+price+"$"+rating+"$"+latitude+"$"+longitude+"$"+status+"$"+opening_time+"$"+closing_time;
+//        long waitCount = modelObject.getWaitCount();
+        String res = station_num+"$"+station_name+"$"+address+"$"+price+"$"+rating+"$"+latitude+"$"+longitude+"$"+status+"$"+opening_time+"$"+closing_time+"$"+waitCount;
 
         Intent serviceIntent = new Intent(getActivity(), StationDetailsActivity.class);
         serviceIntent.putExtra(EXTRA_TEXT,res);

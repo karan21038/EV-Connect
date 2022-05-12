@@ -43,6 +43,9 @@
             android:name=".ui.shops.ShopDetailsActivity"
             android:exported="false" />
         <activity
+            android:name=".PayWallet"
+            android:exported="false" />
+        <activity
             android:name=".ForgotPassword"
             android:exported="false" />
         <activity

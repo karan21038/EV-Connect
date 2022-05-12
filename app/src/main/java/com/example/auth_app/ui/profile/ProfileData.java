@@ -2,7 +2,7 @@ package com.example.auth_app.ui.profile;
 
 public class ProfileData {
 
-   public String mfgDate;
+    public String mfgDate;
     public String model;
     public String regtUpto;
     public String ev_number;
@@ -19,7 +19,7 @@ public class ProfileData {
     public String u_age;
     public String u_email;
     public String u_name;
-    public String wallet_amount;
+    public int wallet_amount;
 
 
     public String getmodel() {
@@ -146,11 +146,11 @@ public class ProfileData {
         this.u_name = u_name;
     }
 
-    public String getWallet_amount() {
+    public int getWallet_amount() {
         return wallet_amount;
     }
 
-    public void setWallet_amount(String wallet_amount) {
+    public void setWallet_amount(int wallet_amount) {
         this.wallet_amount = wallet_amount;
     }
 
@@ -165,7 +165,7 @@ public class ProfileData {
     public void setregtUpto(String regtUpto) {
         this.regtUpto = regtUpto;
     }
-    public ProfileData(String mfgDate, String model, String regtUpto, String ev_number, String ev_type, String u_city, String u_FastTagBalance, String u_InsuranceAmount, String u_OwnerName, String u_PolicyHolder, String u_PremiumDate, String u_RegistrationNo, String u_RenewalDate, String u_age, String u_email, String u_name, String wallet_amount) {
+    public ProfileData(String mfgDate, String model, String regtUpto, String ev_number, String ev_type, String u_city, String u_FastTagBalance, String u_InsuranceAmount, String u_OwnerName, String u_PolicyHolder, String u_PremiumDate, String u_RegistrationNo, String u_RenewalDate, String u_age, String u_email, String u_name, int wallet_amount) {
         this.mfgDate = mfgDate;
         this.model = model;
         this.regtUpto = regtUpto;

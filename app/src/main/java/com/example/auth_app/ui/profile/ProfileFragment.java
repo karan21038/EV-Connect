@@ -1,25 +1,37 @@
 package com.example.auth_app.ui.profile;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import com.example.auth_app.R;
+import com.example.auth_app.User;
 import com.example.auth_app.databinding.FragmentProfileBinding;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 public class ProfileFragment extends Fragment {
 
@@ -32,10 +44,12 @@ public class ProfileFragment extends Fragment {
     private FirebaseDatabase firebaseDatabase;
     FirebaseFirestore firestore;
     private FragmentProfileBinding binding;
-
+    @SuppressLint("StaticFieldLeak")
+    private static ProfileFragment instance;
     View view;
     Button rto,insurance,fastag,challan;
-    TextView profile_name,wallet_amount;
+    @SuppressLint("StaticFieldLeak")
+    public static TextView profile_name,wallet_amount;
     private FragmentTransaction fragmentTransaction;
     private FragmentManager fragmentManager;
     private String userID;
@@ -50,8 +64,10 @@ public class ProfileFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        instance = this;
         binding=FragmentProfileBinding.inflate(inflater,container,false);
         View view=binding.getRoot();
+
         rto = (Button) view.findViewById(R.id.RTOID);
         insurance=(Button) view.findViewById(R.id.InsuranceID);
         fastag=(Button)view.findViewById(R.id.FastTagID);
@@ -68,12 +84,11 @@ public class ProfileFragment extends Fragment {
             public void onDataChange(DataSnapshot mainSnapshot) {
                 ProfileData userProfile = mainSnapshot.getValue(ProfileData.class);
                 if(userProfile!=null) {
-                    String wallet1 = userProfile.wallet_amount;
+                    int wallet1 = userProfile.wallet_amount;
                     String upto=userProfile.regtUpto;
-                    if(wallet1!=null) {
-                        wallet_amount.setText("Balance: " + wallet1);
+                    if(wallet1!=0) {
+                        wallet_amount.setText("Balance: Rs. " + wallet1);
                     }
-
                 }
             }
             @Override
@@ -148,5 +163,13 @@ public class ProfileFragment extends Fragment {
             }
         });
         return view;
+    }
+    public void changeFragmentTextView(String s) {
+        Fragment frag = getFragmentManager().findFragmentById(R.id.container);
+        ((TextView) frag.getView().findViewById(R.id.walletID)).setText(s);
+    }
+    public static ProfileFragment GetInstance()
+    {
+        return instance;
     }
 }

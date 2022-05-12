@@ -104,6 +104,7 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
 
     public int current_time_hour;
     public String status;
+    public static long waitCount=0;
 
     public double distance_from_curr_location;
     public int image_station;
@@ -178,8 +179,7 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
                         closeTime = (String) map.get("Closing Time");
                         rating = (double) map.get("Rating");
                         nearbyRestaurant = (String) map.get("Nearby");
-                        //url = (String) map.get("img-url");
-                        //Log.i("TAG", "MAPPPPPP>>>>>: "+map);
+                        waitCount = (long) map.get("Wait Count");
                         Log.i("TAG", "KRKRKRKRK>>>>>: " + rating);
                         android.location.Location.distanceBetween(latitude_source,longitude_source,lati,longi,results);
                         Log.i("", "Current Location : " + latitude_source + ", " + longitude_source + ", "+ results[0]);
@@ -235,7 +235,7 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
                             distance_from_curr_location = Double.parseDouble(temp);
                             Log.i("","Radius value: "+results[0]);
                             //Log.i("","K value: "+finalK);
-                            stationListItems.add(new StationListItem(finalI, name, lati, longi, price, strtTime, closeTime, rating, address_station, distance_from_curr_location, status,image_station));
+                            stationListItems.add(new StationListItem(finalI, name, lati, longi, price, strtTime, closeTime, rating, address_station, distance_from_curr_location, status,image_station,waitCount));
 
                             try {
                                 List<Address> addresses = geocoder.getFromLocation(lati,longi,1);
@@ -340,51 +340,6 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
         current_time_hour = Integer.parseInt(current_time_hour_str);
         Log.i("","Current Time"+current_time_hour);
 
-
-//        try {
-//            List<Address> addresses = geocoder.getFromLocation(lat_mid_point1,lon_mid_point1,1);
-//            if (addresses.size() > 0) {
-//                Address address = addresses.get(0);
-//                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//                MarkerOptions markerOptions = new MarkerOptions()
-//                        .position(latLng)
-//                        .title(address.getAddressLine(0)).draggable(true);
-//                mMap.addMarker(markerOptions);
-//                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-//        try {
-//            List<Address> addresses = geocoder.getFromLocation(lat_mid_point2,lon_mid_point2,1);
-//            if (addresses.size() > 0) {
-//                Address address = addresses.get(0);
-//                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//                MarkerOptions markerOptions = new MarkerOptions()
-//                        .position(latLng)
-//                        .title(address.getAddressLine(0)).draggable(true);
-//                mMap.addMarker(markerOptions);
-//                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-//        try {
-//            List<Address> addresses = geocoder.getFromLocation(lat_mid_point3,lon_mid_point3,1);
-//            if (addresses.size() > 0) {
-//                Address address = addresses.get(0);
-//                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//                MarkerOptions markerOptions = new MarkerOptions()
-//                        .position(latLng)
-//                        .title(address.getAddressLine(0)).draggable(true);
-//                mMap.addMarker(markerOptions);
-//                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
         try {
             List<Address> addresses = geocoder.getFromLocation(latitude_source,longitude_source,1);
@@ -500,16 +455,8 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
                 }
             });
         }
-        //Log.i("",""+nearbyRestaurant);
     }
 
-//    @Override
-//    public boolean onMarkerClick(final Marker marker) {
-//
-//        onButtonShowPopupWindowClick(null);
-//        Log.i("","WERT");
-//        return false;
-//    }
 
     @Override
     public void onMarkerDragEnd(Marker marker_obj) {
@@ -562,51 +509,6 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
         current_time_hour = Integer.parseInt(current_time_hour_str);
         Log.i("","Current Time"+current_time_hour);
 
-//
-//        try {
-//            List<Address> addresses = geocoder.getFromLocation(lat_mid_point1,lon_mid_point1,1);
-//            if (addresses.size() > 0) {
-//                Address address = addresses.get(0);
-//                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//                MarkerOptions markerOptions = new MarkerOptions()
-//                        .position(latLng)
-//                        .title(address.getAddressLine(0)).draggable(true);
-//                mMap.addMarker(markerOptions);
-//                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            List<Address> addresses = geocoder.getFromLocation(lat_mid_point2,lon_mid_point2,1);
-//            if (addresses.size() > 0) {
-//                Address address = addresses.get(0);
-//                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//                MarkerOptions markerOptions = new MarkerOptions()
-//                        .position(latLng)
-//                        .title(address.getAddressLine(0)).draggable(true);
-//                mMap.addMarker(markerOptions);
-//                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//        try {
-//            List<Address> addresses = geocoder.getFromLocation(lat_mid_point3,lon_mid_point3,1);
-//            if (addresses.size() > 0) {
-//                Address address = addresses.get(0);
-//                LatLng latLng = new LatLng(address.getLatitude(), address.getLongitude());
-//                MarkerOptions markerOptions = new MarkerOptions()
-//                        .position(latLng)
-//                        .title(address.getAddressLine(0)).draggable(true);
-//                mMap.addMarker(markerOptions);
-//                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 16));
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
         try {
             List<Address> addresses = geocoder.getFromLocation(latitude_source,longitude_source,1);

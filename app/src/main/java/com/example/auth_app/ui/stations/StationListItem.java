@@ -1,5 +1,8 @@
 package com.example.auth_app.ui.stations;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class StationListItem {
     public int station_num;
     public String station_name;
@@ -13,8 +16,9 @@ public class StationListItem {
     public double distance;
     public String status;
     public int image;
+    public long waitCount = 0;
 
-    public StationListItem(int station_num, String station_name, double lati, double longi, double price, String strt_time, String stop_time, double ratings, String address, double distance, String status, int image) {
+    public StationListItem(int station_num, String station_name, double lati, double longi, double price, String strt_time, String stop_time, double ratings, String address, double distance, String status, int image, long waitCount) {
         this.station_num = station_num;
         this.station_name = station_name;
         this.lati = lati;
@@ -27,6 +31,7 @@ public class StationListItem {
         this.distance = distance;
         this.status = status;
         this.image=image;
+        this.waitCount = waitCount;
     }
 
     public int getImage() {
@@ -125,5 +130,26 @@ public class StationListItem {
         this.status = status;
     }
 
+    public long getWaitCount() {
+        return waitCount;
+    }
+
+    public void setWaitCount(long waitCount) {
+        this.waitCount = waitCount;
+    }
+//
+//    public Map<String, Object> toMap() {
+//        HashMap<String, Object> result = new HashMap<>();
+//        result.put("Name", station_name);
+//        result.put("Price", price);
+//        result.put("Latitude", lati);
+//        result.put("Longitude", longi);
+//        result.put("Address", address);
+//        result.put("Starting Time", strt_time);
+//        result.put("Closing Time", stop_time);
+//        result.put("Rating", ratings);
+//        result.put("Wait Count", waitCount);
+//        return result;
+//    }
 }
 

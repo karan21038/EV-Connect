@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
     Button pay1b,pay2b,pay3b;
     TextView paymsgtv;
     Button backchallan;
+    Button pay_via_wallet;
     Button pay;
     int flag=0;
     @Override
@@ -33,7 +35,7 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment_gateway);
 
-
+        pay_via_wallet = (Button)findViewById(R.id.pay_wallet_btn);
         paymsgtv=(TextView)findViewById(R.id.paymsg);
         backchallan=(Button) findViewById(R.id.gobackchallan);
         pay=(Button)findViewById(R.id.paybutton);
@@ -42,6 +44,13 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
             @Override
             public void onClick(View view) {
                 startPayment1();
+            }
+        });
+
+        pay_via_wallet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(PaymentGateway.this,PayWallet.class));
             }
         });
 
@@ -69,7 +78,7 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
 
         });
 
-        }
+    }
 
     public void startPayment1() {
 
@@ -111,7 +120,7 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
         flag=1;
         paymsgtv.setText("Payment Successful " +"\n"+"Payment ID: " +s);
 //        backchallan.setVisibility(View.VISIBLE);
-          pay.setVisibility(View.INVISIBLE);
+        pay.setVisibility(View.INVISIBLE);
 //        backchallan.setText(s);
 
         // call fragment challan and remove tv1 and paynow button

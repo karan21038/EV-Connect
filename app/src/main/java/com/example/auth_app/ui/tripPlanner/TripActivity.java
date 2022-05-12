@@ -63,9 +63,12 @@ public class TripActivity extends AppCompatActivity {
             return;
         }
         Location location = locationManager.getLastKnownLocation(locationManager
-                .getBestProvider(criteria, false));
-        latitude = location.getLatitude();
-        longitude = location.getLongitude();
+                .NETWORK_PROVIDER);
+        Log.i("",""+location);
+        if(location!=null) {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+        }
 
         try {
             List<Address> addresses = geocoder.getFromLocation(latitude,longitude,1);
