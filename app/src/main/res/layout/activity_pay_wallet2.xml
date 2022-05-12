@@ -3,13 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/background2"
     android:layout_height="match_parent"
     tools:context=".PayWallet">
 
     <TextView
         android:id="@+id/amount_view_wallet"
-        android:layout_width="188dp"
-        android:layout_height="47dp"
+        android:layout_width="190dp"
+        android:layout_height="45dp"
         android:hint="Amount"
         android:textAlignment="center"
         android:textSize="30sp"
@@ -24,8 +25,9 @@
     <TextView
         android:id="@+id/Wallet_view"
         android:layout_width="133dp"
-        android:layout_height="52dp"
+        android:layout_height="50dp"
         android:text="Wallet"
+        android:fontFamily="@font/barrio"
         android:textAlignment="center"
         android:textSize="30sp"
         android:textStyle="bold"
@@ -42,6 +44,7 @@
         android:layout_height="45dp"
         android:text="FINE DUE"
         android:textAlignment="center"
+        android:fontFamily="@font/baloo_bhaijaan"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +55,7 @@
 
     <TextView
         android:id="@+id/fine_view"
-        android:layout_width="192dp"
+        android:layout_width="190dp"
         android:layout_height="45dp"
         android:hint="Fine in INR"
         android:textAlignment="center"
@@ -66,10 +69,15 @@
 
     <Button
         android:id="@+id/pay_via_wallet_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@color/purple_200"
-        android:text="Pay Dues"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/acme"
+        android:textColor="#0047AB"
+        android:textSize="30dp"
+        android:text="PAY DUES"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

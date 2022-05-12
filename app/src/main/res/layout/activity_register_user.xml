@@ -146,7 +146,7 @@
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/acme"
-        android:text="RESET PASSWORD"
+        android:text="REGISTER"
         android:textColor="#0047AB"
         android:textSize="30dp"
         android:textStyle="bold"

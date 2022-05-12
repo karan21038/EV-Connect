@@ -430,8 +430,8 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
 
                         String name2 = name2_splitted[0];
                         String distance2 = name2_splitted[1];
-                        textview_stn_nearby.setText(String.valueOf(name1) + " :" + String.valueOf(distance1) + '\n' +
-                                String.valueOf(name2) + " :" + String.valueOf(distance2));
+                        textview_stn_nearby.setText(String.valueOf(name1) + " is " + String.valueOf(distance1) + " km away"+'\n' +
+                                String.valueOf(name2) + " is "  + String.valueOf(distance2)+" km away");
                         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                         boolean focusable = true;

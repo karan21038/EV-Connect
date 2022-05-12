@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.FastTag"
-    android:background="@drawable/img_1"
+    android:background="@drawable/background2"
     android:orientation="vertical">
 
     <TextView
@@ -57,8 +57,8 @@
         android:layout_height="60dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/white"
-        android:layout_marginTop="250dp"
-        android:layout_marginLeft="300dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="150dp"
         android:fontFamily="@font/acme"
         android:text="BACK"
         android:textColor="#0047AB"
