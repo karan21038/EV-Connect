@@ -4,167 +4,173 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.RTO"
-    android:background="@drawable/img"
+    android:background="@drawable/img_1"
     android:orientation="vertical">
 
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="@font/aclonica"
-        android:layout_gravity="center"
-        android:text="RC Details"
-        android:textColor="#FFFFFF"
-        android:textSize="50dp"
-        android:textStyle="bold" />
+        android:height="80dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/baloo_bhaijaan"
+        android:textAlignment="center"
+        android:textColor="#191970"
+        android:textSize="60sp"
+        android:text="RC Details" />
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="60dp"
         android:layout_gravity="center"
-        android:textAlignment="center">
+        android:textAlignment="center"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="REGN. NO.: "
-            android:layout_marginLeft="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
             android:textStyle="bold"
-            android:gravity="center"
-            android:textSize="25dp"
-            android:textAlignment="center"
-            android:fontFamily="casual"
-            android:textColor="@color/white"/>
+            android:fontFamily="@font/baloo_bhaijaan"
+            android:textColor="#191970"
+            android:textSize="30dp"
+            android:gravity="center"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
             android:id="@+id/reg_no"
-            android:text="Number"
-            android:textSize="25dp"
-            android:fontFamily="casual"
-            android:textColor="@color/white"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="casual"
-        android:textColor="@color/white"
-        android:layout_gravity="center"
-        android:textAlignment="center">
-
-        <TextView
-            android:layout_width="wrap_content"
+            android:hint="Number"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="0dp"
-            android:textStyle="bold"
-            android:text="Model: "
-            android:textSize="25dp"
+            android:layout_marginRight="10dp"
+            android:textSize="30dp"
             android:fontFamily="casual"
-            android:textAlignment="center"
-            android:textColor="@color/white"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:id="@+id/model_name"
-            android:text="Model"
-            android:textSize="25dp"
-            android:fontFamily="casual"
-            android:textColor="@color/white"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="30dp"
-        android:fontFamily="casual"
-        android:orientation="horizontal"
-        android:textAlignment="center"
-        android:textColor="@color/white">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp"
-            android:fontFamily="casual"
-            android:text="Owner Name:"
             android:textColor="@color/white"
-            android:textSize="25dp"
-            android:textAlignment="center"
-            android:textStyle="bold" />
+            android:gravity="center"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Model: "
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="60dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/baloo_bhaijaan"
+            android:textColor="#191970"
+            android:textSize="30dp"
+            android:gravity="center"/>
+        <TextView
+            android:id="@+id/model_name"
+            android:hint="Model"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:textSize="30dp"
+            android:fontFamily="casual"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Owner Name:"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/baloo_bhaijaan"
+            android:textColor="#191970"
+            android:textSize="30dp"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/owner_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="40dp"
-            android:fontFamily="casual"
-            android:textSize="25dp"
             android:hint="Owner"
-            android:textColor="@color/white" />
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:textSize="30dp"
+            android:fontFamily="casual"
+            android:textColor="@color/white"
+            android:gravity="center"/>
     </LinearLayout>
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
-        android:textAlignment="center">
+        android:textAlignment="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MFG DT.:"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="40dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/baloo_bhaijaan"
+            android:textColor="#191970"
+            android:textSize="30dp"
+            android:gravity="center"/>
+
+        <TextView
+            android:hint="MM/DD/YYYY"
+            android:id="@+id/mfg_date"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:textSize="30dp"
+            android:fontFamily="casual"
+            android:textColor="@color/white"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
             android:textStyle="bold"
-            android:text="MFG DT.:"
-            android:textSize="25dp"
-            android:fontFamily="casual"
-            android:textAlignment="center"
-            android:textColor="@color/white"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="MM/DD/YYYY"
-            android:id="@+id/mfg_date"
-            android:layout_marginLeft="50dp"
-            android:textSize="25dp"
-            android:fontFamily="casual"
-            android:textColor="@color/white"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_gravity="center"
-        android:textAlignment="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="65dp"
-            android:textStyle="bold"
             android:text="REGD UPTO.:"
             android:fontFamily="casual"
+            android:textSize="25sp"
             android:visibility="invisible"
             android:textColor="@color/white"/>
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:hint="REGD UPTO. (MM/DD/YYYY)"
             android:id="@+id/reg_upto"
             android:visibility="invisible"
-            android:layout_marginLeft="40dp"
+            android:layout_marginLeft="30dp"
             android:fontFamily="casual"
             android:textColor="@color/white"/>
 
@@ -174,11 +180,14 @@
         android:id="@+id/rtoback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:layout_marginTop="70dp"
-        android:layout_marginRight="50dp"
-        android:textColor="@color/white"
-        android:background="@color/design_default_color_primary"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/acme"
+        android:textColor="#0047AB"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:layout_marginTop="160dp"
+        android:layout_marginLeft="300dp"
         android:text="Back">
 
     </Button>

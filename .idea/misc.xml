@@ -4,12 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/drawable/rounded_corners.xml" value="0.124" />
+        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/font/acme.xml" value="0.18888888888888888" />
+        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/font/baloo_bhaijaan.xml" value="0.18888888888888888" />
+        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/font/bangers.xml" value="0.18888888888888888" />
+        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/font/barrio.xml" value="0.18888888888888888" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_forgot_password.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_home.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_pay_wallet2.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_payment_gateway.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_register_user.xml" value="0.20416666666666666" />
+        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_shop_details.xml" value="0.1" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_station_details.xml" value="0.19010416666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_station_map.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/activity_station_nav.xml" value="0.20416666666666666" />
@@ -27,6 +32,7 @@
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/fragment_trip.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/insurance.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/popup.xml" value="0.20416666666666666" />
+        <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/rto.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/shop_list_item.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/layout/station_list_item.xml" value="0.20416666666666666" />
         <entry key="..\:/IIITD/MC/EV-Connect/app/src/main/res/menu/activity_main_drawer.xml" value="0.20416666666666666" />

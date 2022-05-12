@@ -4,65 +4,66 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.profile.FastTag"
-    android:background="@drawable/img"
+    android:background="@drawable/img_1"
     android:orientation="vertical">
 
-
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="100dp"
         android:text="FastTag"
-        android:layout_marginTop="70dp"
-        android:fontFamily="casual"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:textSize="50dp"
-        android:gravity="center"/>
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/baloo_bhaijaan"
+        android:textAlignment="center"
+        android:textColor="#191970"
+        android:textSize="60sp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:textAlignment="center"
-        android:layout_gravity="center">
+        android:layout_gravity="center"
+        android:layout_marginTop="150dp"
+        android:textAlignment="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="30dp"
-        android:layout_marginRight="20dp"
-        android:fontFamily="@font/aclonica"
-        android:gravity="center"
-        android:text="Balance"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="40dp"
-        android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/baloo_bhaijaan"
+            android:gravity="center"
+            android:text="Balance"
+            android:textAlignment="center"
+            android:textColor="#191970"
+            android:textSize="50sp" />
 
-    <TextView
-        android:id="@+id/fastamountID"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginRight="30dp"
-        android:gravity="center"
-        android:hint="Fetch Amount"
-        android:text="3600"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="40dp" />
+        <TextView
+            android:id="@+id/fastamountID"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:hint="Fetch Amount"
+            android:fontFamily="@font/bangers"
+            android:textAlignment="center"
+            android:textColor="#191970"
+            android:textSize="45sp"
+            android:textStyle="italic"
+            android:text="3600" />
     </LinearLayout>
 
     <Button
         android:id="@+id/fasttagback"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="right"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="@color/white"
         android:layout_marginTop="250dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginBottom="20dp"
-        android:textColor="@color/white"
-        android:background="@color/design_default_color_primary"
-        android:text="Back">
+        android:layout_marginLeft="300dp"
+        android:fontFamily="@font/acme"
+        android:text="BACK"
+        android:textColor="#0047AB"
+        android:textSize="30dp"
+        android:textStyle="bold">
 
     </Button>
 

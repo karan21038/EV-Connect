@@ -4,45 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     tools:context=".ui.tripPlanner.TripActivity">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:gravity="center">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="130dp"
+            android:layout_marginBottom="134dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/source_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
                 android:hint="Source Location"
-                android:textSize="15sp" />
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/destination_field"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                android:layout_height="100dp"
                 android:layout_below="@id/source_field"
                 android:layout_alignParentLeft="true"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:textAlignment="center"
                 android:hint="Destination Location"
-                android:textSize="15sp" />
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/search"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Search"
-                android:textColor="@color/purple_700" />
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/rounded_corners"
+                android:backgroundTint="#89CFF0"
+                android:fontFamily="@font/acme"
+                android:text="SEARCH"
+                android:textColor="#0047AB"
+                android:textSize="30dp"
+                android:textStyle="bold" />
 
 
         </LinearLayout>
