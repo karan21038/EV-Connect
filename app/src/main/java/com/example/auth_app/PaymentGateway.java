@@ -63,6 +63,7 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
                     backchallan.setVisibility(View.INVISIBLE);
                     pay.setVisibility(View.INVISIBLE);
                     paymsgtv.setVisibility(View.INVISIBLE);
+                    pay_via_wallet.setVisibility(View.INVISIBLE);
 
                     // remove challan!!
                 }
@@ -72,6 +73,7 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
                     backchallan.setVisibility(View.INVISIBLE);
                     pay.setVisibility(View.INVISIBLE);
                     paymsgtv.setVisibility(View.INVISIBLE);
+                    pay_via_wallet.setVisibility(View.INVISIBLE);
                     // remove challan!!
                 }
             }
@@ -122,6 +124,7 @@ public class PaymentGateway extends AppCompatActivity implements PaymentResultLi
 //        backchallan.setVisibility(View.VISIBLE);
         pay.setVisibility(View.INVISIBLE);
 //        backchallan.setText(s);
+        pay_via_wallet.setVisibility(View.INVISIBLE);
 
         // call fragment challan and remove tv1 and paynow button
 

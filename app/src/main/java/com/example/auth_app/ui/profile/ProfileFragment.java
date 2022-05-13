@@ -87,7 +87,7 @@ public class ProfileFragment extends Fragment {
                     int wallet1 = userProfile.wallet_amount;
                     String upto=userProfile.regtUpto;
                     if(wallet1!=0) {
-                        wallet_amount.setText("Balance: Rs. " + wallet1);
+                        wallet_amount.setText("Rs. " + wallet1);
                     }
                 }
             }

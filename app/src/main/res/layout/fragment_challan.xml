@@ -22,7 +22,7 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:stretchColumns="0,1,2,3">
 
@@ -33,14 +33,14 @@
 
             <TextView
                 android:layout_width="80dp"
-                android:layout_height="match_parent"
+                android:layout_height="52dp"
                 android:layout_column="0"
                 android:layout_margin="1dp"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:textSize="15sp"
                 android:text="Offence Date"
                 android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="15sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -87,15 +87,14 @@
 
             <TextView
                 android:layout_width="80dp"
-                android:layout_height="136dp"
+                android:layout_height="61dp"
                 android:layout_column="0"
                 android:layout_margin="1dp"
                 android:background="#FFFFFF"
                 android:gravity="center"
-                android:textSize="15sp"
-                android:text="20/03/2022 \n 16:47"
+                android:text="20/03/2022 \n 19:40"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                />
+                android:textSize="15sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -143,7 +142,7 @@
 
             <TextView
                 android:layout_width="80dp"
-                android:layout_height="match_parent"
+                android:layout_height="66dp"
                 android:layout_column="0"
                 android:layout_margin="1dp"
                 android:background="#FFFFFF"
@@ -178,7 +177,7 @@
             <Button
                 android:id="@+id/pay2"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_column="3"
                 android:layout_margin="1dp"
                 android:background="@drawable/rounded_corners"
@@ -197,7 +196,7 @@
 
             <TextView
                 android:layout_width="80dp"
-                android:layout_height="match_parent"
+                android:layout_height="70dp"
                 android:layout_column="0"
                 android:layout_margin="1dp"
                 android:background="#FFFFFF"
@@ -251,13 +250,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="right"
-        android:layout_marginTop="40dp"
-        android:layout_marginRight="150dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="160dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/acme"
         android:text="BACK"
         android:textColor="#0047AB"
         android:textSize="30dp"
-        android:textStyle="bold"></Button>
+        android:textStyle="bold">
+
+    </Button>
 </LinearLayout>

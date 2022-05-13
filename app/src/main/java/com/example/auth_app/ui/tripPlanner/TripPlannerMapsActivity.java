@@ -1,6 +1,7 @@
 package com.example.auth_app.ui.tripPlanner;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -14,6 +15,8 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -73,6 +76,7 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
     double latitude_drag;
     double longitude_drag;
 
+    private Toast toastMessage;
     double latitude_destination;
     double longitude_destination;
 
@@ -129,9 +133,11 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
         marker_source_destination = new ArrayList<Marker>();
 
         layout = new LinearLayout(this);
+        Log.i("","Toast");
+        Toast.makeText(TripPlannerMapsActivity.this, "Click Orange markers to see nearby Restaurants", Toast.LENGTH_LONG).show();
 
-        //mMap.setOnMarkerClickListener(this);
     }
+
 
     //Reference - https://stackoverflow.com/questions/4656802/midpoint-between-two-latitude-and-longitude
     public double[] find_mid_point(double lat1,double lon1,double lat2,double lon2){
@@ -158,7 +164,7 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
 
         int[] images_station = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r,R.drawable.s};
         float[] results = new float[2];
-        for(int i=1;i<=50;i++) {
+        for(int i=1;i<=55;i++) {
 
             int finalI = i;
             FirebaseDatabase.getInstance().getReference().child("Stations").child(String.valueOf(i)).addValueEventListener(new ValueEventListener() {
@@ -430,8 +436,8 @@ public class TripPlannerMapsActivity extends FragmentActivity implements OnMapRe
 
                         String name2 = name2_splitted[0];
                         String distance2 = name2_splitted[1];
-                        textview_stn_nearby.setText(String.valueOf(name1) + " is " + String.valueOf(distance1) + " km away"+'\n' +
-                                String.valueOf(name2) + " is "  + String.valueOf(distance2)+" km away");
+                        textview_stn_nearby.setText("Restaurant Recommended"+"\n"+"\n"+"1."+String.valueOf(name1) + "-" + String.valueOf(distance1) + " km away"+'\n' +
+                                "2."+String.valueOf(name2) + "-"  + String.valueOf(distance2)+" km away");
                         int width = LinearLayout.LayoutParams.WRAP_CONTENT;
                         int height = LinearLayout.LayoutParams.WRAP_CONTENT;
                         boolean focusable = true;

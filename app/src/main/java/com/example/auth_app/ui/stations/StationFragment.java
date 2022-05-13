@@ -197,7 +197,7 @@ public class StationFragment extends Fragment implements StationAdapter.ItemClic
                 int[] images_station = {R.drawable.a,R.drawable.b,R.drawable.c,R.drawable.d,R.drawable.e,R.drawable.f,R.drawable.g,R.drawable.h,R.drawable.i,R.drawable.j,R.drawable.k,R.drawable.l,R.drawable.m,R.drawable.n,R.drawable.o,R.drawable.p,R.drawable.q,R.drawable.r,R.drawable.s};
                 // int k=0;
                 //Database work
-                for(int i=1;i<=50;i++) {
+                for(int i=1;i<=55;i++) {
 
                     int finalI = i;
                     FirebaseDatabase.getInstance().getReference().child("Stations").child(String.valueOf(i)).addValueEventListener(new ValueEventListener() {

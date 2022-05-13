@@ -126,12 +126,18 @@ public class PayWallet extends AppCompatActivity {
                                             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                                 databaseReference.setValue(userProfile);
-                                                Toast.makeText(getApplicationContext(), "data added", Toast.LENGTH_SHORT).show();
+                                                Button x = payment_done;
+                                                x.setText("Paid!");
+                                                x.setEnabled(false);
+                                                Toast.makeText(PayWallet.this, "Fine Paid Successfully", Toast.LENGTH_SHORT).show();
+                                                dialog.dismiss();
+                                                pay_via_wallet.setEnabled(false);
+                                                //Toast.makeText(getApplicationContext(), "data added", Toast.LENGTH_SHORT).show();
                                             }
 
                                             @Override
                                             public void onCancelled(@NonNull DatabaseError error) {
-                                                Toast.makeText(getApplicationContext(), "data can't be added" + error, Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(getApplicationContext(), "data can't be added" + error, Toast.LENGTH_SHORT).show();
                                             }
                                         });
                                     }
@@ -143,12 +149,7 @@ public class PayWallet extends AppCompatActivity {
 
 
                             //set button to paid and disable it.
-                            Button x = payment_done;
-                            x.setText("Paid!");
-                            x.setEnabled(false);
-                            Toast.makeText(PayWallet.this, "Fine Paid Successfully", Toast.LENGTH_SHORT).show();
-                            dialog.dismiss();
-                            pay_via_wallet.setEnabled(false);
+
                         }
                     });
                 }
